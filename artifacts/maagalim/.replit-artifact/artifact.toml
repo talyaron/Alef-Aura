@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "1000 מעגלים"
+version = "1.0.0"
+id = "artifacts/maagalim"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24683
+
+[services.development]
+run = "pnpm --filter @workspace/maagalim run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/maagalim", "run", "build" ]
+publicDir = "artifacts/maagalim/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24683"
+BASE_PATH = "/"
