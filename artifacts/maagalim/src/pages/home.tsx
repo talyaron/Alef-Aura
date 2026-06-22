@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import { Play, ChevronLeft } from "lucide-react";
 import { Link } from "wouter";
 
-const AnimatedSection = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => {
+const AnimatedSection = ({ children, className = "", id = "", style }: { children: React.ReactNode; className?: string; id?: string; style?: React.CSSProperties }) => {
   return (
     <motion.section
       id={id}
       className={`py-24 ${className}`}
+      style={style}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
