@@ -50,42 +50,51 @@ const Nav = () => (
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-primary/20">
-      {/* Background Ripples */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+    <section
+      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10"
+      style={{ background: "linear-gradient(135deg, #001F6B 0%, #0047BB 55%, #1A80D8 100%)" }}
+    >
+      {/* Background Ripples — white & gold on blue */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-35">
         {[0, 1.6, 3.2, 4.8, 6.4].map((delay, i) => (
-          <div 
+          <div
             key={i}
-            className={`absolute w-64 h-64 rounded-full border ${i % 2 === 0 ? 'border-primary' : 'border-accent'} ripple-ring`}
+            className={`absolute w-64 h-64 rounded-full border ${i % 2 === 0 ? 'border-white' : 'border-yellow-300'} ripple-ring`}
             style={{ animationDelay: `${delay}s` }}
           />
         ))}
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl pt-12 pb-24">
+      <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl pt-12 pb-28">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="w-12 h-1 bg-accent"></div>
-          <span className="text-accent font-bold tracking-widest text-sm uppercase">תנועה אזרחית לשיח מנהיגותי חדש</span>
-          <div className="w-12 h-1 bg-accent"></div>
+          <div className="w-12 h-0.5 bg-yellow-300"></div>
+          <span className="text-yellow-300 font-bold tracking-widest text-sm">תנועה אזרחית לשיח מנהיגותי חדש</span>
+          <div className="w-12 h-0.5 bg-yellow-300"></div>
         </div>
 
-        <h1 className="font-bold text-[clamp(3.4rem,11vw,7.6rem)] leading-none tracking-tighter mb-6 bg-gradient-to-b from-white to-accent/80 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(230,162,60,0.2)]">
+        <h1 className="font-bold text-[clamp(3.4rem,11vw,7.6rem)] leading-none tracking-tighter mb-6 bg-gradient-to-b from-white via-blue-100 to-white/80 bg-clip-text text-transparent drop-shadow-[0_2px_30px_rgba(255,255,255,0.25)]">
           1000 מעגלים
         </h1>
-        
-        <p className="text-xl md:text-2xl font-bold text-foreground mb-4">
+
+        <p className="text-xl md:text-2xl font-bold text-white mb-4">
           1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות — שנכתבות על ידי כולנו.
         </p>
-        
-        <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+
+        <p className="text-base md:text-lg text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
           אנחנו מחזירים את ההכרעה לידי האזרחים: מעגלי דיון בקהילה שמייצרים הסכמות אמיתיות, מתועדים במסך, והופכים לכוח שמעצב מחדש את השיח הציבורי בישראל.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_0_15px_rgba(230,162,60,0.3)]">
+          <button
+            data-testid="btn-hero-fund"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(234,179,8,0.45)] hover:shadow-[0_12px_34px_rgba(234,179,8,0.6)] hover:-translate-y-0.5"
+          >
             סיוע במימון
           </button>
-          <button className="flex items-center justify-center gap-2 border border-primary/30 hover:border-primary text-primary px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-primary/5">
+          <button
+            data-testid="btn-hero-pilot"
+            className="flex items-center justify-center gap-2 border border-white/40 hover:border-white text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-white/10"
+          >
             <span>צפו בפיילוט</span>
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -93,7 +102,7 @@ const Hero = () => {
       </div>
 
       {/* Stats Strip */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-primary/20 bg-background/50 backdrop-blur-sm">
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/15 bg-white/8 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6">
             {[
@@ -102,9 +111,9 @@ const Hero = () => {
               { num: "1", text: "אמנה חברתית משותפת" },
               { num: "∞", text: "הצבעה ישירה על הנושא הבא" },
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center justify-center text-center border-l last:border-0 border-primary/10">
-                <span className="font-mono font-black text-3xl md:text-4xl text-primary drop-shadow-[0_0_8px_rgba(0,229,195,0.4)] mb-1">{stat.num}</span>
-                <span className="text-xs md:text-sm text-muted-foreground font-medium">{stat.text}</span>
+              <div key={i} className="flex flex-col items-center justify-center text-center border-l last:border-0 border-white/15">
+                <span className="font-mono font-black text-3xl md:text-4xl text-yellow-300 drop-shadow-[0_0_12px_rgba(253,224,71,0.6)] mb-1">{stat.num}</span>
+                <span className="text-xs md:text-sm text-blue-100 font-medium">{stat.text}</span>
               </div>
             ))}
           </div>
@@ -182,22 +191,23 @@ const WhatItCreates = () => {
   ];
 
   return (
-    <AnimatedSection id="creates" className="bg-[#030908] border-y border-primary/10 relative overflow-hidden">
+    <AnimatedSection id="creates" className="border-y border-primary/10 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #0B3D91 0%, #1565C0 60%, #1976D2 100%)" }}>
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
-      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-accent font-bold text-sm tracking-wider mb-2 block">מה זה מייצר</span>
-          <h2 className="text-3xl md:text-5xl font-bold">מפוליטיקה של זהויות — לפוליטיקה של פתרונות</h2>
+          <span className="text-yellow-300 font-bold text-sm tracking-wider mb-2 block">מה זה מייצר</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">מפוליטיקה של זהויות — לפוליטיקה של פתרונות</h2>
+          <p className="text-blue-100 mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות. זו תשתית שמייצרת תרבות שיח חדשה.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {principles.map((p, i) => (
-            <div key={i} className="group bg-card/30 border border-primary/10 rounded-2xl p-8 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,229,195,0.1)] hover:-translate-y-1">
-              <div className="font-mono text-3xl font-black text-primary/30 group-hover:text-primary transition-colors mb-4">{p.num}</div>
-              <h3 className="text-xl font-bold mb-3">{p.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
+            <div key={i} className="group bg-white/8 border border-white/15 rounded-2xl p-8 backdrop-blur-sm transition-all hover:border-yellow-300/50 hover:bg-white/14 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] hover:-translate-y-1">
+              <div className="font-mono text-3xl font-black text-yellow-300/50 group-hover:text-yellow-300 transition-colors mb-4">{p.num}</div>
+              <h3 className="text-xl font-bold mb-3 text-white">{p.title}</h3>
+              <p className="text-blue-100 leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -235,8 +245,8 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 text-center max-w-2xl mx-auto">
-        <p className="text-primary font-medium text-sm">
+      <div className="bg-primary/8 border border-primary/20 rounded-xl p-4 text-center max-w-2xl mx-auto">
+        <p className="text-primary font-semibold text-sm">
           תהליך מעגלי — לא קו ישר. כל סבב מזין את הבא, וההכשרה משתפרת בכל פעם.
         </p>
       </div>
@@ -274,16 +284,16 @@ const Media = () => {
           </div>
         </div>
 
-        <div className="relative aspect-video rounded-2xl overflow-hidden border border-primary/20 bg-card group cursor-pointer shadow-2xl">
+        <div className="relative aspect-video rounded-2xl overflow-hidden border border-primary/20 bg-card group cursor-pointer shadow-xl">
           {/* Faux Video Player */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#020807] to-primary/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-900 via-blue-800 to-primary/60"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-accent/20 border border-accent flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform group-hover:bg-accent/40 shadow-[0_0_30px_rgba(230,162,60,0.3)]">
-              <Play className="w-8 h-8 text-accent ml-1" fill="currentColor" />
+            <div className="w-20 h-20 rounded-full bg-yellow-400/20 border-2 border-yellow-400 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform group-hover:bg-yellow-400/40 shadow-[0_0_30px_rgba(234,179,8,0.4)]">
+              <Play className="w-8 h-8 text-yellow-300 mr-1" fill="currentColor" />
             </div>
             <div className="mt-6 flex flex-col items-center">
-              <span className="bg-background/80 px-3 py-1 rounded-full text-xs font-bold border border-primary/30 text-primary mb-2">הפיילוט הקרוב</span>
-              <span className="text-sm font-medium tracking-wide">פרק מלא · בקרוב</span>
+              <span className="bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold border border-white/30 text-white mb-2">הפיילוט הקרוב</span>
+              <span className="text-sm font-medium tracking-wide text-blue-100">פרק מלא · בקרוב</span>
             </div>
           </div>
         </div>
@@ -293,11 +303,12 @@ const Media = () => {
 };
 
 const Community = () => (
-  <AnimatedSection id="community" className="bg-[#030908] border-y border-primary/10">
+  <AnimatedSection id="community" className="bg-secondary border-y border-primary/10">
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך זה נראה בקהילה</span>
         <h2 className="text-3xl md:text-5xl font-bold">הכוח של המעגל — איכות המנחים</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">מעגל טוב לא קורה מעצמו. הוא נשען על מנחים מיומנים, על הכשרה שמתפתחת, ועל קהל שמגיע מוכן.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -315,12 +326,12 @@ const Community = () => (
             bullets: ["הכנה להנהגה מעגלית בקהילה", "הכנה לדמוקרטיה דיונית (דליברטיבית)", "הוספת מעגלים"]
           }
         ].map((card, i) => (
-          <div key={i} className="bg-card/50 border border-primary/10 rounded-2xl p-8 backdrop-blur-sm">
-            <h3 className="text-xl font-bold mb-6 pb-4 border-b border-primary/10 text-primary">{card.title}</h3>
+          <div key={i} className="bg-card border border-primary/15 rounded-2xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+            <h3 className="text-xl font-bold mb-6 pb-4 border-b border-primary/15 text-primary">{card.title}</h3>
             <ul className="space-y-4">
               {card.bullets.map((bullet, j) => (
                 <li key={j} className="flex gap-3 items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                   <span className="text-muted-foreground leading-relaxed">{bullet}</span>
                 </li>
               ))}
@@ -387,7 +398,7 @@ const Team = () => {
   ];
 
   return (
-    <AnimatedSection id="teams" className="bg-[#030908] border-t border-primary/10 pb-32">
+    <AnimatedSection id="teams" className="bg-secondary border-t border-primary/10 pb-32">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-accent font-bold text-sm tracking-wider mb-2 block">הצוות</span>
@@ -420,21 +431,43 @@ const Team = () => {
 };
 
 const CTA = () => (
-  <section id="join" className="py-32 relative overflow-hidden bg-gradient-to-b from-[#030908] to-[#011a15] border-y border-primary/20">
-    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiPjwvcmVjdD4KPHBhdGggZD0iTTAgMEw4IDhaTTAgOEw4IDBaIiBzdHJva2U9IiMwMGU1YzMiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-50"></div>
-    
+  <section
+    id="join"
+    className="py-32 relative overflow-hidden"
+    style={{ background: "linear-gradient(160deg, #001F6B 0%, #0047BB 50%, #2196F3 100%)" }}
+  >
+    {/* radial glow behind text */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+    {/* ripple rings */}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+      {[0, 1.8, 3.6].map((delay, i) => (
+        <div
+          key={i}
+          className="absolute w-48 h-48 rounded-full border border-white ripple-ring"
+          style={{ animationDelay: `${delay}s` }}
+        />
+      ))}
+    </div>
+
     <div className="container relative z-10 mx-auto px-4 text-center max-w-3xl">
-      <span className="text-accent font-bold text-sm tracking-wider mb-4 block">לאן אנחנו הולכים</span>
-      <h2 className="text-4xl md:text-6xl font-bold mb-6">כל שינוי גדול מתחיל במעגל אחד</h2>
-      <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+      <span className="text-yellow-300 font-bold text-sm tracking-wider mb-4 block">לאן אנחנו הולכים</span>
+      <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">כל שינוי גדול מתחיל במעגל אחד</h2>
+      <p className="text-xl text-blue-100 mb-10 leading-relaxed">
         1000 מעגלים הם הדרך שלנו ללמד חברה שלמה להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. זה מתחיל בפיילוט אחד — ובתמיכה שלך.
       </p>
-      
+
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_0_20px_rgba(230,162,60,0.4)]">
+        <button
+          data-testid="btn-cta-fund"
+          className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(234,179,8,0.45)] hover:shadow-[0_12px_36px_rgba(234,179,8,0.65)] hover:-translate-y-0.5"
+        >
           סיוע במימון
         </button>
-        <button className="flex items-center justify-center gap-2 border border-primary hover:bg-primary hover:text-primary-foreground text-primary px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto">
+        <button
+          data-testid="btn-cta-contact"
+          className="flex items-center justify-center gap-2 border-2 border-white/50 hover:border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-white/10"
+        >
           <span>דברו איתנו</span>
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -444,16 +477,17 @@ const CTA = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-[#020504] py-12 border-t border-primary/10">
+  <footer className="py-12 border-t border-primary/15" style={{ background: "#001F6B" }}>
     <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
-        <div className="relative w-6 h-6 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border border-primary/40"></div>
-          <div className="absolute inset-1 rounded-full bg-primary/80"></div>
+        <div className="relative w-7 h-7 flex items-center justify-center">
+          <div className="absolute inset-0 rounded-full border border-white/40"></div>
+          <div className="absolute inset-1.5 rounded-full border border-yellow-300/60"></div>
+          <div className="absolute inset-3 rounded-full bg-yellow-300"></div>
         </div>
-        <span className="font-bold text-lg text-foreground">1000 מעגלים</span>
+        <span className="font-bold text-lg text-white">1000 מעגלים</span>
       </div>
-      <p className="text-sm text-muted-foreground">תנועה אזרחית לשיח מנהיגותי חדש</p>
+      <p className="text-sm text-blue-200">תנועה אזרחית לשיח מנהיגותי חדש</p>
     </div>
   </footer>
 );
