@@ -94,58 +94,58 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* LIGHT — ISRAEL BLUE & WHITE — HOPE & EUPHORIA */
+/* AIELET PALETTE — Purple · Sky Blue · Snow · Sand */
 :root, .dark {
-  --button-outline: rgba(0, 56, 168, 0.10);
-  --badge-outline: rgba(0, 56, 168, 0.06);
+  --button-outline: rgba(113, 63, 150, 0.10);
+  --badge-outline: rgba(113, 63, 150, 0.06);
   --opaque-button-border-intensity: 6;
-  --elevate-1: rgba(0, 56, 168, 0.04);
-  --elevate-2: rgba(0, 56, 168, 0.08);
+  --elevate-1: rgba(113, 63, 150, 0.04);
+  --elevate-2: rgba(113, 63, 150, 0.09);
 
-  --background: 210 60% 98%;          /* #F2F8FF — barely-blue white */
-  --foreground: 220 70% 10%;          /* #081838 — deep navy */
-  --border: 215 55% 80%;              /* #B3CBEA — soft blue border */
+  --background: 0 40% 97%;            /* #F7EFEF — Snow */
+  --foreground: 274 42% 14%;          /* #1E0B2E — deep purple-black */
+  --border: 193 35% 74%;              /* #96CCD8-ish — frosted blue border */
 
   --card: 0 0% 100%;                  /* pure white */
-  --card-foreground: 220 70% 10%;
-  --card-border: 215 55% 84%;
+  --card-foreground: 274 42% 14%;
+  --card-border: 193 35% 80%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 220 70% 10%;
-  --popover-border: 215 55% 84%;
+  --popover-foreground: 274 42% 14%;
+  --popover-border: 193 35% 80%;
 
-  --primary: 218 90% 38%;             /* #0B4CB5 — rich Israeli blue */
-  --primary-foreground: 0 0% 100%;    /* white text on blue */
+  --primary: 278 41% 42%;             /* #713F96 — Rebecca Purple */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 50% 94%;           /* #E6F0FB — light blue surface */
-  --secondary-foreground: 220 60% 18%;
+  --secondary: 55 25% 82%;            /* #DFDDC5 — Sand Dune */
+  --secondary-foreground: 274 42% 18%;
 
-  --muted: 210 45% 96%;               /* #EEF4FB */
-  --muted-foreground: 215 30% 48%;    /* #637A9F */
+  --muted: 55 20% 93%;                /* very light sand */
+  --muted-foreground: 274 20% 48%;    /* muted purple-grey */
 
-  --accent: 36 85% 52%;               /* #E5951A — warm gold */
-  --accent-foreground: 220 70% 8%;
+  --accent: 195 35% 63%;              /* #7FB7C4 — Sky Blue */
+  --accent-foreground: 274 42% 14%;
 
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 210 40% 92%;
-  --ring: 218 90% 38%;
+  --input: 193 30% 88%;
+  --ring: 278 41% 42%;
 
-  --sidebar: 210 55% 97%;
-  --sidebar-foreground: 220 70% 10%;
-  --sidebar-border: 215 55% 84%;
-  --sidebar-primary: 218 90% 38%;
+  --sidebar: 0 30% 97%;
+  --sidebar-foreground: 274 42% 14%;
+  --sidebar-border: 193 35% 78%;
+  --sidebar-primary: 278 41% 42%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 210 50% 94%;
-  --sidebar-accent-foreground: 220 60% 18%;
-  --sidebar-ring: 218 90% 38%;
+  --sidebar-accent: 55 25% 82%;
+  --sidebar-accent-foreground: 274 42% 18%;
+  --sidebar-ring: 278 41% 42%;
 
-  --chart-1: 218 90% 38%;
-  --chart-2: 36 85% 52%;
-  --chart-3: 200 80% 45%;
-  --chart-4: 260 60% 55%;
-  --chart-5: 14 67% 55%;
+  --chart-1: 278 41% 42%;
+  --chart-2: 195 35% 63%;
+  --chart-3: 193 40% 71%;
+  --chart-4: 55 25% 68%;
+  --chart-5: 300 30% 55%;
 
   --app-font-sans: 'Alef', sans-serif;
   --app-font-serif: Georgia, serif;
@@ -153,14 +153,14 @@
 
   --radius: 0.75rem;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(218 90% 38% / 0.08);
-  --shadow-xs: 0px 2px 0px 0px hsl(218 90% 38% / 0.08);
-  --shadow-sm: 0px 2px 0px 0px hsl(218 90% 38% / 0.08), 0px 1px 2px -1px hsl(218 90% 38% / 0.10);
-  --shadow: 0px 2px 0px 0px hsl(218 90% 38% / 0.08), 0px 1px 2px -1px hsl(218 90% 38% / 0.12);
-  --shadow-md: 0px 2px 0px 0px hsl(218 90% 38% / 0.08), 0px 4px 8px -1px hsl(218 90% 38% / 0.14);
-  --shadow-lg: 0px 2px 0px 0px hsl(218 90% 38% / 0.08), 0px 8px 16px -2px hsl(218 90% 38% / 0.16);
-  --shadow-xl: 0px 2px 0px 0px hsl(218 90% 38% / 0.08), 0px 16px 24px -4px hsl(218 90% 38% / 0.18);
-  --shadow-2xl: 0px 24px 48px -8px hsl(218 90% 38% / 0.22);
+  --shadow-2xs: 0px 2px 0px 0px hsl(278 41% 42% / 0.07);
+  --shadow-xs: 0px 2px 0px 0px hsl(278 41% 42% / 0.07);
+  --shadow-sm: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 1px 2px -1px hsl(278 41% 42% / 0.10);
+  --shadow: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 1px 2px -1px hsl(278 41% 42% / 0.12);
+  --shadow-md: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 4px 8px -1px hsl(278 41% 42% / 0.13);
+  --shadow-lg: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 8px 16px -2px hsl(278 41% 42% / 0.15);
+  --shadow-xl: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 16px 24px -4px hsl(278 41% 42% / 0.17);
+  --shadow-2xl: 0px 24px 48px -8px hsl(278 41% 42% / 0.20);
 
   /* Fallbacks */
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
