@@ -94,58 +94,58 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* AIELET PALETTE — Purple · Sky Blue · Snow · Sand */
+/* VINTAGE EARTH PALETTE — Sand · Grape · Teal · Pine · Espresso */
 :root, .dark {
-  --button-outline: rgba(113, 63, 150, 0.10);
-  --badge-outline: rgba(113, 63, 150, 0.06);
+  --button-outline: rgba(74, 63, 86, 0.10);
+  --badge-outline: rgba(74, 63, 86, 0.06);
   --opaque-button-border-intensity: 6;
-  --elevate-1: rgba(113, 63, 150, 0.04);
-  --elevate-2: rgba(113, 63, 150, 0.09);
+  --elevate-1: rgba(74, 63, 86, 0.04);
+  --elevate-2: rgba(74, 63, 86, 0.09);
 
-  --background: 0 40% 97%;            /* #F7EFEF — Snow */
-  --foreground: 274 42% 14%;          /* #1E0B2E — deep purple-black */
-  --border: 193 35% 74%;              /* #96CCD8-ish — frosted blue border */
+  --background: 55 29% 82%;           /* #DFDDC5 — Sand Dune */
+  --foreground: 269 15% 18%;          /* dark grape */
+  --border: 170 17% 68%;              /* soft teal border */
 
-  --card: 0 0% 100%;                  /* pure white */
-  --card-foreground: 274 42% 14%;
-  --card-border: 193 35% 80%;
+  --card: 55 25% 90%;                 /* lighter sand */
+  --card-foreground: 269 15% 18%;
+  --card-border: 170 17% 74%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 274 42% 14%;
-  --popover-border: 193 35% 80%;
+  --popover: 55 25% 92%;
+  --popover-foreground: 269 15% 18%;
+  --popover-border: 170 17% 74%;
 
-  --primary: 278 41% 42%;             /* #713F96 — Rebecca Purple */
-  --primary-foreground: 0 0% 100%;
+  --primary: 269 15% 29%;             /* #4A3F56 — Vintage Grape */
+  --primary-foreground: 55 29% 88%;   /* sand on grape */
 
-  --secondary: 268 62% 90%;           /* #E4D5F5 — Soft Lavender */
-  --secondary-foreground: 274 42% 18%;
+  --secondary: 184 21% 41%;           /* #537D80 — Pine Blue */
+  --secondary-foreground: 55 29% 90%;
 
-  --muted: 268 40% 96%;               /* very light lavender */
-  --muted-foreground: 274 20% 48%;    /* muted purple-grey */
+  --muted: 55 20% 86%;                /* light sand muted */
+  --muted-foreground: 269 10% 44%;    /* muted grape-grey */
 
-  --accent: 195 35% 63%;              /* #7FB7C4 — Sky Blue */
-  --accent-foreground: 274 42% 14%;
+  --accent: 170 21% 57%;              /* #81ACA5 — Muted Teal */
+  --accent-foreground: 55 29% 88%;
 
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive: 9 49% 22%;           /* #55251D — Espresso */
+  --destructive-foreground: 55 29% 88%;
 
-  --input: 193 30% 88%;
-  --ring: 278 41% 42%;
+  --input: 170 17% 78%;
+  --ring: 269 15% 29%;
 
-  --sidebar: 0 30% 97%;
-  --sidebar-foreground: 274 42% 14%;
-  --sidebar-border: 193 35% 78%;
-  --sidebar-primary: 278 41% 42%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 55 25% 82%;
-  --sidebar-accent-foreground: 274 42% 18%;
-  --sidebar-ring: 278 41% 42%;
+  --sidebar: 55 25% 86%;
+  --sidebar-foreground: 269 15% 18%;
+  --sidebar-border: 170 17% 72%;
+  --sidebar-primary: 269 15% 29%;
+  --sidebar-primary-foreground: 55 29% 88%;
+  --sidebar-accent: 184 21% 41%;
+  --sidebar-accent-foreground: 55 29% 90%;
+  --sidebar-ring: 269 15% 29%;
 
-  --chart-1: 278 41% 42%;
-  --chart-2: 195 35% 63%;
-  --chart-3: 193 40% 71%;
-  --chart-4: 55 25% 68%;
-  --chart-5: 300 30% 55%;
+  --chart-1: 269 15% 29%;
+  --chart-2: 170 21% 57%;
+  --chart-3: 184 21% 41%;
+  --chart-4: 9 49% 22%;
+  --chart-5: 55 29% 65%;
 
   --app-font-sans: 'Alef', sans-serif;
   --app-font-serif: Georgia, serif;
@@ -153,14 +153,14 @@
 
   --radius: 0.75rem;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(278 41% 42% / 0.07);
-  --shadow-xs: 0px 2px 0px 0px hsl(278 41% 42% / 0.07);
-  --shadow-sm: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 1px 2px -1px hsl(278 41% 42% / 0.10);
-  --shadow: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 1px 2px -1px hsl(278 41% 42% / 0.12);
-  --shadow-md: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 4px 8px -1px hsl(278 41% 42% / 0.13);
-  --shadow-lg: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 8px 16px -2px hsl(278 41% 42% / 0.15);
-  --shadow-xl: 0px 2px 0px 0px hsl(278 41% 42% / 0.07), 0px 16px 24px -4px hsl(278 41% 42% / 0.17);
-  --shadow-2xl: 0px 24px 48px -8px hsl(278 41% 42% / 0.20);
+  --shadow-2xs: 0px 2px 0px 0px hsl(269 15% 29% / 0.08);
+  --shadow-xs: 0px 2px 0px 0px hsl(269 15% 29% / 0.08);
+  --shadow-sm: 0px 2px 0px 0px hsl(269 15% 29% / 0.08), 0px 1px 2px -1px hsl(269 15% 29% / 0.12);
+  --shadow: 0px 2px 0px 0px hsl(269 15% 29% / 0.08), 0px 1px 2px -1px hsl(269 15% 29% / 0.14);
+  --shadow-md: 0px 2px 0px 0px hsl(269 15% 29% / 0.08), 0px 4px 8px -1px hsl(269 15% 29% / 0.15);
+  --shadow-lg: 0px 2px 0px 0px hsl(269 15% 29% / 0.08), 0px 8px 16px -2px hsl(269 15% 29% / 0.17);
+  --shadow-xl: 0px 2px 0px 0px hsl(269 15% 29% / 0.08), 0px 16px 24px -4px hsl(269 15% 29% / 0.19);
+  --shadow-2xl: 0px 24px 48px -8px hsl(269 15% 29% / 0.22);
 
   /* Fallbacks */
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
