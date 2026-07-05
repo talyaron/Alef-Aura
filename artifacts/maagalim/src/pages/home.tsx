@@ -81,7 +81,7 @@ const Hero = () => {
           חברה שדנה על דרכים לפתרון, ולא על מי צודק.<br className="hidden sm:block" /> שבה ההסכמה היא הישג — ולא ויתור.
         </p>
 
-        <p className="text-base md:text-lg text-[#DFDDC5] mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg text-[#E4D5F5] mb-10 max-w-2xl mx-auto leading-relaxed">
           1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות שנוצרות יחד — ומעצבות את השיח הציבורי בישראל.
         </p>
 
@@ -114,7 +114,7 @@ const Hero = () => {
             ].map((stat, i) => (
               <div key={i} className="flex flex-col items-center justify-center text-center border-l last:border-0 border-white/15">
                 <span className="font-mono font-black text-3xl md:text-4xl text-[#96CCD8] drop-shadow-[0_0_12px_rgba(150,204,216,0.6)] mb-1">{stat.num}</span>
-                <span className="text-xs md:text-sm text-[#DFDDC5] font-medium">{stat.text}</span>
+                <span className="text-xs md:text-sm text-[#E4D5F5] font-medium">{stat.text}</span>
               </div>
             ))}
           </div>
@@ -200,7 +200,7 @@ const WhatItCreates = () => {
         <div className="text-center mb-16">
           <span className="text-[#96CCD8] font-bold text-sm tracking-wider mb-2 block">מה זה מייצר</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white">מפוליטיקה של זהויות — לפוליטיקה של פתרונות</h2>
-          <p className="text-[#DFDDC5] mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות — זוהי תשתית לתרבות שיח חדשה, שבה ההסכמה היא הישג ולא ויתור.</p>
+          <p className="text-[#E4D5F5] mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות — זוהי תשתית לתרבות שיח חדשה, שבה ההסכמה היא הישג ולא ויתור.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -208,7 +208,7 @@ const WhatItCreates = () => {
             <div key={i} className="group bg-white/8 border border-white/15 rounded-2xl p-8 backdrop-blur-sm transition-all hover:border-[#96CCD8]/50 hover:bg-white/14 hover:shadow-[0_0_30px_rgba(150,204,216,0.12)] hover:-translate-y-1">
               <div className="font-mono text-3xl font-black text-[#96CCD8]/50 group-hover:text-[#96CCD8] transition-colors mb-4">{p.num}</div>
               <h3 className="text-xl font-bold mb-3 text-white">{p.title}</h3>
-              <p className="text-[#DFDDC5] leading-relaxed">{p.desc}</p>
+              <p className="text-[#E4D5F5] leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -456,7 +456,7 @@ const CTA = () => (
     <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
       <span className="text-[#96CCD8] font-bold text-sm tracking-wider mb-4 block">הצטרפו אלינו</span>
       <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">כל שינוי גדול מתחיל במעגל אחד</h2>
-      <p className="text-xl text-[#DFDDC5] mb-12 leading-relaxed max-w-2xl mx-auto">
+      <p className="text-xl text-[#E4D5F5] mb-12 leading-relaxed max-w-2xl mx-auto">
         אנחנו יחד בונים תרבות שיח שמאפשרת לכולנו להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. הצעד הראשון — מעגל אחד.
       </p>
 
@@ -472,7 +472,7 @@ const CTA = () => (
             className="group flex flex-col items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/25 hover:border-white/50 rounded-2xl px-4 py-5 transition-all hover:-translate-y-1"
           >
             <span className="font-bold text-white text-sm">{action.label}</span>
-            <span className="text-[#DFDDC5]/80 text-xs">{action.sub}</span>
+            <span className="text-[#E4D5F5]/80 text-xs">{action.sub}</span>
           </button>
         ))}
       </div>
@@ -507,7 +507,7 @@ const Footer = () => (
         </div>
         <span className="font-bold text-lg text-white">1000 מעגלים</span>
       </div>
-      <p className="text-sm text-[#DFDDC5]">תנועה אזרחית לשיח מנהיגותי חדש</p>
+      <p className="text-sm text-[#E4D5F5]">תנועה אזרחית לשיח מנהיגותי חדש</p>
     </div>
   </footer>
 );
