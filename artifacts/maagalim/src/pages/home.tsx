@@ -42,7 +42,7 @@ const Nav = () => (
         ))}
       </div>
 
-      <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2 rounded-full font-bold text-sm transition-all shadow-[0_4px_16px_rgba(74,63,86,0.30)] hover:shadow-[0_6px_20px_rgba(74,63,86,0.45)]">
+      <button className="bg-[#81ACA5] hover:bg-[#537D80] text-[#2D2535] px-5 py-2 rounded-full font-bold text-sm transition-all shadow-[0_4px_16px_rgba(129,172,165,0.40)] hover:shadow-[0_6px_20px_rgba(83,125,128,0.50)]">
         סיוע במימון
       </button>
     </div>
@@ -53,7 +53,7 @@ const Hero = () => {
   return (
     <section
       className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10"
-      style={{ background: "linear-gradient(135deg, #2D2535 0%, #4A3F56 55%, #537D80 100%)" }}
+      style={{ background: "linear-gradient(135deg, #2D2535 0%, #4A3F56 50%, #537D80 78%, #81ACA5 100%)" }}
     >
       {/* Background Ripples — white & sky blue on purple */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
@@ -192,7 +192,7 @@ const WhatItCreates = () => {
   ];
 
   return (
-    <AnimatedSection id="creates" className="border-y border-primary/10 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #2D2535 0%, #4A3F56 60%, #537D80 100%)" }}>
+    <AnimatedSection id="creates" className="border-y border-primary/10 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #2D2535 0%, #4A3F56 55%, #81ACA5 100%)" }}>
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -437,7 +437,7 @@ const CTA = () => (
   <section
     id="join"
     className="py-32 relative overflow-hidden"
-    style={{ background: "linear-gradient(160deg, #55251D 0%, #4A3F56 50%, #537D80 100%)" }}
+    style={{ background: "linear-gradient(160deg, #2D2535 0%, #4A3F56 50%, #81ACA5 100%)" }}
   >
     {/* radial glow behind text */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/8 rounded-full blur-[100px] pointer-events-none"></div>
@@ -480,7 +480,7 @@ const CTA = () => (
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
           data-testid="btn-cta-fund"
-          className="bg-[#DFDDC5] hover:bg-[#CCCAB5] text-[#55251D] px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(223,221,197,0.35)] hover:shadow-[0_12px_36px_rgba(223,221,197,0.50)] hover:-translate-y-0.5"
+          className="bg-[#DFDDC5] hover:bg-[#CCCAB5] text-[#4A3F56] px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(223,221,197,0.35)] hover:shadow-[0_12px_36px_rgba(223,221,197,0.50)] hover:-translate-y-0.5"
         >
           סיוע במימון
         </button>
@@ -497,7 +497,7 @@ const CTA = () => (
 );
 
 const Footer = () => (
-  <footer className="py-12 border-t border-white/10" style={{ background: "#55251D" }}>
+  <footer className="py-12 border-t border-white/10" style={{ background: "#537D80" }}>
     <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
         <div className="relative w-7 h-7 flex items-center justify-center">
