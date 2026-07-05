@@ -129,7 +129,7 @@ const Vision = () => (
     <div className="grid md:grid-cols-2 gap-16 items-center">
       <div>
         <span className="text-accent font-bold text-sm tracking-wider mb-2 block">החזון</span>
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">החברה שאנחנו בונים יחד</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">בונים חברה מבוססת הסכמות</h2>
         
         <div className="space-y-6 text-muted-foreground text-lg">
           <blockquote className="border-r-4 border-primary pr-6 py-2 text-2xl text-foreground font-bold leading-snug">
