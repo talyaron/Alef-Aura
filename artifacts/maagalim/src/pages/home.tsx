@@ -378,13 +378,13 @@ const Team = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-accent font-bold text-sm tracking-wider mb-2 block">הצוות</span>
-          <h2 className="text-3xl md:text-5xl font-bold">מי מאחורי המעגלים</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">מי מאחורי המעגלים</h2>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-12">
           {teams.map((team, i) => (
             <div key={i}>
-              <h3 className="text-xl font-bold mb-6 border-b border-primary/20 pb-2 inline-block pr-4 pl-12 text-primary">{team.name}</h3>
+              <h3 className="text-xl font-bold mb-6 border-b border-white/30 pb-2 inline-block pr-4 pl-12 text-white/90">{team.name}</h3>
               <div className="flex flex-wrap gap-4">
                 {team.members.map((member, j) => (
                   <div key={j} className="flex items-center gap-3 bg-card border border-primary/10 rounded-full pr-1.5 pl-5 py-1.5">
