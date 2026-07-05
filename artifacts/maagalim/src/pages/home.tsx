@@ -307,12 +307,18 @@ const Media = () => {
 };
 
 const Community = () => (
-  <AnimatedSection id="community" className="bg-secondary border-y border-primary/10">
+  <AnimatedSection id="community" className="bg-muted border-y border-primary/10">
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך זה נראה בקהילה</span>
         <h2 className="text-3xl md:text-5xl font-bold">הכוח של המעגל — איכות המנחים</h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">מעגל טוב לא קורה מעצמו. הוא נשען על מנחים מיומנים, על הכשרה שמתפתחת, ועל קהל שמגיע מוכן.</p>
+        <div className="mt-8 flex justify-center">
+          <img
+            src="/dialogue-circle.png"
+            alt="מעגל שיח — מחזור שנתי של נושאים"
+            className="w-72 h-72 object-contain rounded-full shadow-lg opacity-90"
+          />
+        </div>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
