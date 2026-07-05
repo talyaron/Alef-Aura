@@ -147,37 +147,11 @@ const Vision = () => (
       </div>
 
       <div className="relative aspect-square max-w-md mx-auto w-full">
-        {/* Dial Card */}
-        <div className="absolute inset-0 bg-card/40 border border-primary/10 rounded-full backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center justify-center p-8">
-          <div className="absolute inset-0 rounded-full border border-primary/5"></div>
-          <div className="absolute inset-4 rounded-full border border-primary/10"></div>
-          <div className="absolute inset-12 rounded-full border border-primary/20"></div>
-          
-          {/* Numbers 1-12 */}
-          {[...Array(12)].map((_, i) => {
-            const angle = (i * 30) - 90;
-            const radius = 42; // percentage
-            const x = 50 + radius * Math.cos(angle * Math.PI / 180);
-            const y = 50 + radius * Math.sin(angle * Math.PI / 180);
-            const isHighlighted = [1, 4, 7, 10].includes(i + 1);
-            
-            return (
-              <div 
-                key={i}
-                className={`absolute w-8 h-8 -ml-4 -mt-4 rounded-full flex items-center justify-center font-mono font-bold text-sm transition-all
-                  ${isHighlighted ? 'bg-primary/20 text-primary border border-primary shadow-[0_0_10px_rgba(0,229,195,0.4)]' : 'bg-background/80 text-muted-foreground border border-border/50'}`}
-                style={{ left: `${x}%`, top: `${y}%` }}
-              >
-                {i + 1}
-              </div>
-            );
-          })}
-
-          <div className="text-center z-10 bg-background/90 p-6 rounded-full border border-primary/20 shadow-xl max-w-[200px]">
-            <h3 className="font-bold text-primary mb-1">מחזור שנתי של נושאים</h3>
-            <p className="text-xs text-muted-foreground">נושא חדש בכל חודש — נבחר על ידי המשתתפים בהצבעה ישירה.</p>
-          </div>
-        </div>
+        <img
+          src="/dialogue-people.png"
+          alt="מעגל שיח — אנשים מדברים יחד בשמחה"
+          className="w-full h-full object-cover rounded-3xl shadow-2xl"
+        />
       </div>
     </div>
   </AnimatedSection>
