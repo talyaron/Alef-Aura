@@ -69,7 +69,7 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl pt-12 pb-28">
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="w-12 h-0.5 bg-[#81ACA5]"></div>
-          <span className="text-[#81ACA5] font-bold tracking-widest text-sm">תנועה אזרחית לשיח מנהיגותי חדש</span>
+          <span className="text-[#81ACA5] font-bold tracking-widest text-base md:text-lg">מיזם חברתי לשיח מנהיגותי חדש</span>
           <div className="w-12 h-0.5 bg-[#81ACA5]"></div>
         </div>
 
@@ -507,7 +507,7 @@ const Footer = () => (
         </div>
         <span className="font-bold text-lg text-white">1000 מעגלים</span>
       </div>
-      <p className="text-sm text-[#DFDDC5]">תנועה אזרחית לשיח מנהיגותי חדש</p>
+      <p className="text-sm text-[#DFDDC5]">מיזם חברתי לשיח מנהיגותי חדש</p>
     </div>
   </footer>
 );
