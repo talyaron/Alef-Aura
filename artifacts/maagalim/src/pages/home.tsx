@@ -307,11 +307,11 @@ const Media = () => {
 };
 
 const Community = () => (
-  <AnimatedSection id="community" className="bg-muted border-y border-primary/10">
+  <AnimatedSection id="community" className="bg-secondary border-y border-primary/10">
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך זה נראה בקהילה</span>
-        <h2 className="text-3xl md:text-5xl font-bold">הכוח של המעגל — איכות המנחים</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white">הכוח של המעגל — איכות המנחים</h2>
         <div className="mt-8 flex justify-center">
           <img
             src="/dialogue-circle.png"
