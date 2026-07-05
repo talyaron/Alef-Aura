@@ -77,26 +77,26 @@ const Hero = () => {
           1000 מעגלים
         </h1>
 
-        <p className="text-xl md:text-2xl font-bold text-white mb-4">
-          1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות — שנכתבות על ידי כולנו.
+        <p className="text-xl md:text-2xl font-bold text-white mb-4 leading-snug max-w-3xl mx-auto">
+          חברה שדנה על דרכים לפתרון, ולא על מי צודק.<br className="hidden sm:block" /> שבה ההסכמה היא הישג — ולא ויתור.
         </p>
 
         <p className="text-base md:text-lg text-[#DFDDC5] mb-10 max-w-2xl mx-auto leading-relaxed">
-          אנחנו מחזירים את ההכרעה לידי האזרחים: מעגלי דיון בקהילה שמייצרים הסכמות אמיתיות, מתועדים במסך, והופכים לכוח שמעצב מחדש את השיח הציבורי בישראל.
+          1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות שנוצרות יחד — ומעצבות את השיח הציבורי בישראל.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
-            data-testid="btn-hero-fund"
+            data-testid="btn-hero-join"
             className="bg-white hover:bg-[#F7EFEF] text-[#713F96] px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(255,255,255,0.30)] hover:shadow-[0_12px_34px_rgba(255,255,255,0.45)] hover:-translate-y-0.5"
           >
-            סיוע במימון
+            הצטרפו למעגל
           </button>
           <button
-            data-testid="btn-hero-pilot"
+            data-testid="btn-hero-vision"
             className="flex items-center justify-center gap-2 border border-white/40 hover:border-white text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-white/10"
           >
-            <span>צפו בפיילוט</span>
+            <span>גלו את החזון</span>
             <ChevronLeft className="w-5 h-5" />
           </button>
         </div>
@@ -129,19 +129,19 @@ const Vision = () => (
     <div className="grid md:grid-cols-2 gap-16 items-center">
       <div>
         <span className="text-accent font-bold text-sm tracking-wider mb-2 block">החזון</span>
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">איך תיראה החברה הישראלית אחרי שכל זה יקרה?</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">החברה שאנחנו בונים יחד</h2>
         
         <div className="space-y-6 text-muted-foreground text-lg">
-          <p>
-            תארו לעצמכם מדינה שבה החלטות גורליות לא מתקבלות רק בחדרים סגורים או באולפני טלוויזיה, אלא מתחילות בקהילות עצמן. אלפי אזרחים מתכנסים באופן קבוע לדון, לשמוע מומחים, להקשיב לעמדות מנוגדות, ולגבש הסכמות.
-          </p>
-          
-          <blockquote className="border-r-4 border-accent pr-6 py-2 text-2xl text-foreground font-bold leading-snug my-8">
-            "חברה שמתווכחת על דרכים לפתור, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור."
+          <blockquote className="border-r-4 border-primary pr-6 py-2 text-2xl text-foreground font-bold leading-snug">
+            חברה שדנה על דרכים לפתרון, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור.
           </blockquote>
           
           <p>
-            אנחנו בונים תשתית שתאפשר לחברה הישראלית לייצר אמנות חברתיות חדשות. לא דרך פוליטיקאים, אלא דרך הציבור עצמו שמכתיב את הכיוון מלמטה למעלה.
+            אנו מבקשים לעורר תרבות שיח על ידי הנחלת שיח מכבד, פתוח ומפרה. דרך הקשבה אמיתית אנחנו מעוררים שותפות ורצון טוב — ומספקים יחד מוטיבציה ויצירתיות למצוא פתרונות משותפים, ליזום מתוך אכפתיות, ולפעול בשיתוף פעולה למען מטרה משותפת.
+          </p>
+          
+          <p>
+            המטרה שלנו היא להעמיק לכל אדם את הכלים וההשראה לדבר בגובה העיניים — ללא שמץ של ביטול או הקטנה. לטפח דיבור מכבד, להצית את המוטיבציה לתשובה משותפת, ולעודד יוזמה חיובית — ליזום למען, ליזום מתוך הקשבה, וליזום יחד.
           </p>
         </div>
       </div>
@@ -200,7 +200,7 @@ const WhatItCreates = () => {
         <div className="text-center mb-16">
           <span className="text-[#96CCD8] font-bold text-sm tracking-wider mb-2 block">מה זה מייצר</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white">מפוליטיקה של זהויות — לפוליטיקה של פתרונות</h2>
-          <p className="text-[#DFDDC5] mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות. זו תשתית שמייצרת תרבות שיח חדשה.</p>
+          <p className="text-[#DFDDC5] mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות — זוהי תשתית לתרבות שיח חדשה, שבה ההסכמה היא הישג ולא ויתור.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -246,9 +246,12 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <div className="bg-primary/8 border border-primary/20 rounded-xl p-4 text-center max-w-2xl mx-auto">
-        <p className="text-primary font-semibold text-sm">
-          תהליך מעגלי — לא קו ישר. כל סבב מזין את הבא, וההכשרה משתפרת בכל פעם.
+      <div className="bg-primary/8 border border-primary/20 rounded-xl p-6 text-center max-w-2xl mx-auto">
+        <p className="text-primary font-semibold">
+          תהליך מעגלי — לא קו ישר. האיכות של השיח בכל מעגל היא מה שמניע את ההשפעה כלפי חוץ.
+        </p>
+        <p className="text-muted-foreground text-sm mt-2">
+          הקשבה, כבוד, ויצירתיות משותפת — אלו לא רק ערכים, אלא כלים שנלמדים ומתורגלים בכל מעגל.
         </p>
       </div>
     </AnimatedSection>
@@ -450,12 +453,29 @@ const CTA = () => (
       ))}
     </div>
 
-    <div className="container relative z-10 mx-auto px-4 text-center max-w-3xl">
-      <span className="text-[#96CCD8] font-bold text-sm tracking-wider mb-4 block">לאן אנחנו הולכים</span>
+    <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
+      <span className="text-[#96CCD8] font-bold text-sm tracking-wider mb-4 block">הצטרפו אלינו</span>
       <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">כל שינוי גדול מתחיל במעגל אחד</h2>
-      <p className="text-xl text-[#DFDDC5] mb-10 leading-relaxed">
-        1000 מעגלים הם הדרך שלנו ללמד חברה שלמה להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. זה מתחיל בפיילוט אחד — ובתמיכה שלך.
+      <p className="text-xl text-[#DFDDC5] mb-12 leading-relaxed max-w-2xl mx-auto">
+        אנחנו יחד בונים תרבות שיח שמאפשרת לכולנו להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. הצעד הראשון — מעגל אחד.
       </p>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 max-w-3xl mx-auto">
+        {[
+          { label: "הצטרפו למעגל", sub: "השתתפות בדיון קהילתי" },
+          { label: "היו מנחה", sub: "הכשרה והובלת מעגלים" },
+          { label: "הציעו נושא", sub: "עצבו את סדר היום" },
+          { label: "שיתוף פעולה", sub: "ארגונים ושותפים" },
+        ].map((action, i) => (
+          <button
+            key={i}
+            className="group flex flex-col items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/25 hover:border-white/50 rounded-2xl px-4 py-5 transition-all hover:-translate-y-1"
+          >
+            <span className="font-bold text-white text-sm">{action.label}</span>
+            <span className="text-[#DFDDC5]/80 text-xs">{action.sub}</span>
+          </button>
+        ))}
+      </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
