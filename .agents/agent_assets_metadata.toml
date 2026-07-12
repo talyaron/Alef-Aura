@@ -1,8 +1,13 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "koFz_LzrbGWr6iqrOjRuy"
 uri = "file://artifacts/maagalim/public/dialogue-people.png"
 type = "image"
 title = "generated_image"
+
+[[outputs]]
+id = "lZaqhZBFkNfm8shcXb3MM"
+uri = "file://1000-maagalim.docx"
+type = "word_document"
+title = "1000 מעגלים — תוכן האתר"
