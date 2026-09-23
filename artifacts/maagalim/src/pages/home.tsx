@@ -172,7 +172,7 @@ const Nav = () => {
 const Hero = () => (
   <section className="paper-grain relative overflow-hidden bg-[#F7F3E9]">
     <OliveBranchArt className="pointer-events-none absolute -left-20 top-24 w-[300px] -rotate-12 opacity-20 md:-left-8 md:top-28 md:w-[430px] md:opacity-30" />
-    <div className="section-wrap relative grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 md:grid-cols-[1.08fr_.92fr] md:gap-16 md:py-20 lg:py-24">
+    <div className="section-wrap relative grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 md:grid-cols-[1fr_1fr] md:gap-16 md:py-20 lg:py-24">
       <div className="order-2 md:order-1">
         <div className="editorial-rule mb-7">
           <span className="eyebrow">מיזם חברתי לשיח מנהיגותי חדש</span>
@@ -211,14 +211,14 @@ const Hero = () => (
           <span>שיחה טובה היא תשתית אזרחית</span>
         </div>
       </div>
-      <div className="relative order-1 mx-auto w-full max-w-[520px] md:order-2">
-        <div className="absolute -inset-4 rounded-[47%_53%_45%_55%/48%_42%_58%_52%] border border-[#C8CEB9] md:-inset-7" aria-hidden="true" />
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[44%_56%_48%_52%/42%_44%_56%_58%] bg-[#C8CEB9] shadow-[0_24px_55px_rgba(38,56,45,.15)]">
+      <div className="relative order-1 mx-auto w-full max-w-[650px] md:order-2">
+        <div className="absolute -inset-3 rounded-[2rem_7rem_2rem_7rem] border border-[#C8CEB9] md:-inset-5" aria-hidden="true" />
+        <div className="relative aspect-[16/11] overflow-hidden rounded-[1.5rem_6rem_1.5rem_6rem] bg-[#C8CEB9] shadow-[0_24px_55px_rgba(38,56,45,.15)]">
           <img
-            src="/dialogue-people.png"
+            src="/maagalim-circle-reference.jpeg"
             alt="מעגל שיח — אנשים מדברים יחד בשמחה"
             data-testid="img-hero-dialogue"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
       </div>
@@ -245,10 +245,15 @@ const Vision = () => (
   <AnimatedSection id="vision" className="relative overflow-hidden bg-[#FFFFFF] py-24 md:py-32">
     <div className="section-wrap grid items-center gap-14 md:grid-cols-[.85fr_1.15fr] md:gap-24">
       <div className="relative order-2 md:order-1">
-        <div className="relative overflow-hidden rounded-[2.25rem] bg-[#EDE7D8] px-7 py-10 shadow-[0_18px_40px_rgba(38,56,45,.10)] md:px-10 md:py-14">
-          <OliveBranchArt className="mx-auto w-full max-w-[430px]" />
-          <div className="mt-4 border-t border-[#C8CEB9] pt-6">
-            <p className="font-display text-2xl font-semibold leading-[1.45] text-[#26382D]">
+        <div className="relative aspect-[6/5] overflow-hidden rounded-[2rem_6rem_2rem_6rem] bg-[#EDE7D8] shadow-[0_18px_40px_rgba(38,56,45,.12)]">
+          <img
+            src="/olive-landscape-reference.jpeg"
+            alt="נוף ישראלי בין ענפי זית ובמרכזו מעגל שיח"
+            data-testid="img-vision-landscape"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-[#F7F3E9]/92 px-5 py-4 backdrop-blur-sm">
+            <p className="font-display text-xl font-semibold leading-[1.45] text-[#26382D] md:text-2xl">
               מקשיבים לקולות השונים.<br />
               מוצאים את הקרקע המשותפת.
             </p>
@@ -389,7 +394,7 @@ const Media = () => {
         <div className="relative">
           <div className="absolute -inset-4 rounded-[2rem] bg-[#C8CEB9] md:-inset-6" aria-hidden="true" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#26382D]">
-            <img src="/dialogue-people.png" alt="אנשים משתתפים במעגל שיח" data-testid="img-media-circle" className="h-full w-full object-cover object-center opacity-75" />
+            <img src="/maagalim-circle-reference.jpeg" alt="אנשים משתתפים במעגל שיח" data-testid="img-media-circle" className="h-full w-full object-cover object-center opacity-80" />
             <div className="absolute inset-0 bg-[#26382D]/45" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
               <button
