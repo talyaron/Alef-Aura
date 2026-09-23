@@ -171,56 +171,59 @@ const Nav = () => {
 
 const Hero = () => (
   <section className="paper-grain relative overflow-hidden bg-[#F7F3E9]">
-    <OliveBranchArt className="pointer-events-none absolute -left-20 top-24 w-[300px] -rotate-12 opacity-20 md:-left-8 md:top-28 md:w-[430px] md:opacity-30" />
-    <div className="section-wrap relative grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 md:grid-cols-[1fr_1fr] md:gap-16 md:py-20 lg:py-24">
-      <div className="order-2 md:order-1">
-        <div className="editorial-rule mb-7">
-          <span className="eyebrow">מיזם חברתי לשיח מנהיגותי חדש</span>
-        </div>
-        <h1 className="font-display max-w-3xl text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[1.03] tracking-[-0.045em] text-[#26382D]">
-          <span className="block">להקשיב.</span>
-          <span className="block text-[#C76D45]">להסכים.</span>
-          <span className="block">לפעול יחד.</span>
-        </h1>
-        <p className="mt-8 max-w-xl text-[1.15rem] font-medium leading-[1.75] text-[#29342E] md:text-[1.32rem]">
-          חברה שדנה על דרכים לפתרון, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור.
-        </p>
-        <p className="mt-5 max-w-lg text-base leading-[1.85] text-[#687067]">
-          1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות שנוצרות יחד — ומעצבות את השיח הציבורי בישראל.
-        </p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#join"
-            data-testid="link-hero-join"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#26382D] px-7 py-3.5 text-base font-bold text-[#F7F3E9] transition-transform hover:-translate-y-1"
-          >
-            הצטרפו למעגל
-            <ArrowLeft size={18} aria-hidden="true" />
-          </a>
-          <a
-            href="#vision"
-            data-testid="link-hero-vision"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#26382D] px-7 py-3.5 text-base font-bold text-[#26382D] transition-colors hover:bg-[#EDE7D8]"
-          >
-            גלו את החזון
-            <ChevronLeft size={18} aria-hidden="true" />
-          </a>
-        </div>
-        <div className="mt-14 flex items-center gap-3 text-sm text-[#687067]">
-          <Leaf size={18} className="text-[#69735A]" aria-hidden="true" />
-          <span>שיחה טובה היא תשתית אזרחית</span>
+    <div className="relative mx-auto grid max-w-[1440px] md:min-h-[690px] md:grid-cols-[1fr_1.18fr]">
+      <div className="relative order-2 flex items-center px-6 py-14 sm:px-10 md:order-1 md:px-12 md:py-16 lg:px-20">
+        <OliveBranchArt className="pointer-events-none absolute -bottom-12 -right-16 w-[260px] -scale-x-100 opacity-25 md:-bottom-8 md:-right-10 md:w-[360px]" />
+        <div className="relative z-10 max-w-[560px]">
+          <p className="font-display text-[clamp(1.45rem,2.5vw,2.2rem)] font-semibold leading-[1.25] text-[#29342E]">
+            מיזם חברתי לשיח
+          </p>
+          <h1 className="font-display mt-1 text-[clamp(3.3rem,6.7vw,6.3rem)] font-extrabold leading-[0.98] tracking-[-0.045em] text-[#26382D]">
+            מנהיגותי חדש
+          </h1>
+          <div className="mt-7 h-px w-24 bg-[#69735A]" aria-hidden="true" />
+          <p className="mt-7 max-w-lg text-[1.15rem] font-medium leading-[1.8] text-[#29342E] md:text-[1.28rem]">
+            חברה שדנה על דרכים לפתרון,<br />
+            ולא על מי צודק.<br />
+            שבה ההסכמה היא הישג —<br />
+            ולא ויתור.
+          </p>
+          <p className="mt-6 max-w-lg text-base leading-[1.85] text-[#687067]">
+            1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות שנוצרות יחד — ומעצבות את השיח הציבורי בישראל.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#join"
+              data-testid="link-hero-join"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#26382D] px-7 py-3.5 text-base font-bold text-[#F7F3E9] transition-transform hover:-translate-y-1"
+            >
+              הצטרפו למעגל
+              <ArrowLeft size={18} aria-hidden="true" />
+            </a>
+            <a
+              href="#vision"
+              data-testid="link-hero-vision"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#26382D] px-7 py-3.5 text-base font-bold text-[#26382D] transition-colors hover:bg-[#EDE7D8]"
+            >
+              גלו את החזון
+              <ChevronLeft size={18} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="mt-9 flex items-center gap-3 text-sm text-[#687067]">
+            <Leaf size={18} className="text-[#69735A]" aria-hidden="true" />
+            <span>שיחה טובה היא תשתית אזרחית</span>
+          </div>
         </div>
       </div>
-      <div className="relative order-1 mx-auto w-full max-w-[650px] md:order-2">
-        <div className="absolute -inset-3 rounded-[2rem_7rem_2rem_7rem] border border-[#C8CEB9] md:-inset-5" aria-hidden="true" />
-        <div className="relative aspect-[16/11] overflow-hidden rounded-[1.5rem_6rem_1.5rem_6rem] bg-[#C8CEB9] shadow-[0_24px_55px_rgba(38,56,45,.15)]">
-          <img
-            src="/maagalim-circle-reference.jpeg"
-            alt="מעגל שיח — אנשים מדברים יחד בשמחה"
-            data-testid="img-hero-dialogue"
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
+      <div className="relative order-1 min-h-[390px] overflow-hidden md:order-2 md:min-h-[690px]">
+        <img
+          src="/maagalim-circle-reference.jpeg"
+          alt="מעגל שיח — אנשים מדברים יחד בשמחה"
+          data-testid="img-hero-dialogue"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#26382D]/20 via-transparent to-transparent md:bg-gradient-to-l md:from-[#F7F3E9]/12 md:to-transparent" aria-hidden="true" />
+        <OliveBranchArt className="pointer-events-none absolute -left-16 -top-8 w-[330px] -rotate-12 opacity-65 md:w-[420px]" />
       </div>
     </div>
     <div className="border-t border-[#D8D1C1] bg-[#EDE7D8]">
