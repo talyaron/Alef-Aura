@@ -11,3 +11,18 @@ id = "lZaqhZBFkNfm8shcXb3MM"
 uri = "file://1000-maagalim.docx"
 type = "word_document"
 title = "1000 מעגלים — תוכן האתר"
+logical_id = "8e1cb798-d62d-4046-9c69-577777b09856"
+
+[[outputs]]
+id = "JbA0WcqXWPKP3OoXOc-Ai"
+uri = "file://backups/maagalim-before-text-edits-2026-09-23.tar.gz"
+type = "unspecified"
+title = "גיבוי אתר 1000 מעגלים"
+description = "עותק של קוד האתר והנכסים לפני תחילת שינויי הטקסטים, מתאריך 23 בספטמבר 2026."
+logical_id = "c528ddd0-7175-44e2-8249-a2b3653b3bee"
+content_hash = "sha256:2584a188ff51b14816fd16b7fa527548d4cd10228b341557fd14bc0f970677ed"
+size = 2138007
+mtime_ms = 1790174902452
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:324fdc1d-3808-4148-b8d7-df550dfa880a/c528ddd0-7175-44e2-8249-a2b3653b3bee/7e4e32ed-539c-4101-837b-6d72ecb7de86"
+storage_version_token = "1790174912421282"
+content_type = "application/octet-stream"
