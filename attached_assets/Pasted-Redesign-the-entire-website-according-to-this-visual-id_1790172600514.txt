@@ -1,0 +1,101 @@
+Redesign the entire website according to this visual identity.
+
+The website is RTL and in Hebrew.
+
+The visual language should feel:
+warm, intelligent, human, contemporary, Israeli, civic and hopeful.
+
+Avoid the visual language of political campaigns, government websites, news websites or corporate NGOs.
+
+Use generous whitespace, elegant typography, natural photography and subtle organic graphic elements.
+
+COLOR PALETTE:
+
+Cream: #F7F3E9
+Sand: #EDE7D8
+Dark Olive: #26382D
+Olive: #69735A
+Sage: #C8CEB9
+Terracotta: #C76D45
+Clay: #D99A70
+Dark Text: #29342E
+Muted Text: #687067
+White: #FFFFFF
+Line: #D8D1C1
+
+TYPOGRAPHY:
+
+Headings:
+Noto Serif Hebrew
+Weights 600, 700, 800
+
+Body:
+Noto Sans Hebrew
+Weights 300, 400, 500, 600, 700, 800
+
+Use bold typography intentionally to create visual hierarchy.
+
+Do not make every text element the same weight.
+
+Important phrases and key ideas should appear in large, bold typography and act as visual anchors.
+
+HERO TITLE:
+Large elegant serif Hebrew typography.
+Use a combination of regular and very bold words.
+
+Example:
+"תנועה אזרחית לשיח"
+"MANHIGUTI חדש"
+
+The most important words should be visually heavier.
+
+BODY TEXT:
+18px desktop
+16px mobile
+Line height around 1.8
+
+SECTION TITLES:
+36px to 58px desktop
+30px to 40px mobile
+Noto Serif Hebrew
+Weight 700
+
+HERO TITLE:
+48px to 88px desktop
+38px to 52px mobile
+Noto Serif Hebrew
+Weight 700
+Line height 1.05
+
+BUTTONS:
+Rounded pill shape.
+Primary button: Dark Olive #26382D
+Secondary button: transparent with Dark Olive border
+Donation button: Terracotta #C76D45
+
+Use olive branches as a subtle recurring visual motif.
+
+Use organic shapes with soft irregular edges.
+Use subtle paper texture where appropriate.
+Do not overuse decorative elements.
+
+Photography should feel documentary and authentic rather than like stock photography.
+
+The overall design should communicate:
+listening
+dialogue
+community
+leadership
+agreement
+action
+hope
+
+Create strong visual hierarchy between:
+headline
+bold statement
+supporting text
+call to action.
+
+The website should feel spacious and editorial, not crowded.
+
+Maintain excellent accessibility and readability.

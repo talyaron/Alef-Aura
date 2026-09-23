@@ -1,157 +1,246 @@
-import React from "react";
+import { useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Play, ChevronLeft } from "lucide-react";
-import { Link } from "wouter";
+import {
+  ArrowLeft,
+  ChevronLeft,
+  Leaf,
+  Menu,
+  Play,
+  Plus,
+  Quote,
+  X,
+} from "lucide-react";
 
-const AnimatedSection = ({ children, className = "", id = "", style }: { children: React.ReactNode; className?: string; id?: string; style?: React.CSSProperties }) => {
+const navItems = [
+  { label: "החזון", id: "vision" },
+  { label: "מה זה מייצר", id: "creates" },
+  { label: "איך זה עובד", id: "how" },
+  { label: "מדיה", id: "media" },
+  { label: "קהילה", id: "community" },
+  { label: "אקדמיה", id: "academia" },
+  { label: "הצוות", id: "teams" },
+];
+
+const AnimatedSection = ({
+  children,
+  className = "",
+  id,
+}: {
+  children: ReactNode;
+  className?: string;
+  id: string;
+}) => (
+  <motion.section
+    id={id}
+    className={className}
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-90px" }}
+    transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+  >
+    {children}
+  </motion.section>
+);
+
+const Logo = ({ light = false }: { light?: boolean }) => (
+  <a
+    href="#top"
+    data-testid={light ? "link-footer-logo" : "link-header-logo"}
+    className="group flex items-center gap-3"
+    aria-label="1000 מעגלים — חזרה לראש העמוד"
+  >
+    <span className="relative flex h-10 w-10 items-center justify-center">
+      <span className={`absolute inset-0 rounded-full border ${light ? "border-[#C8CEB9]/70" : "border-[#69735A]"}`} />
+      <span className={`absolute inset-[5px] rounded-full border ${light ? "border-[#D99A70]" : "border-[#C76D45]"}`} />
+      <span className={`absolute inset-[11px] rounded-full ${light ? "bg-[#D99A70]" : "bg-[#26382D]"} transition-transform duration-300 group-hover:scale-125`} />
+    </span>
+    <span className={`font-display text-[1.18rem] font-bold leading-none ${light ? "text-[#F7F3E9]" : "text-[#26382D]"}`}>
+      1000 מעגלים
+    </span>
+  </a>
+);
+
+const Nav = () => {
+  const [open, setOpen] = useState(false);
+
+  const closeMenu = () => setOpen(false);
+
   return (
-    <motion.section
-      id={id}
-      className={`py-24 ${className}`}
-      style={style}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
-      {children}
-    </motion.section>
+    <header id="top" className="sticky top-0 z-50 border-b border-[#D8D1C1]/85 bg-[#F7F3E9]/95 backdrop-blur-md">
+      <nav aria-label="ניווט ראשי" className="section-wrap flex min-h-[78px] items-center justify-between">
+        <Logo />
+        <div className="hidden items-center gap-6 lg:flex">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              data-testid={`link-nav-${item.id}`}
+              className="relative py-2 text-[0.9rem] font-semibold text-[#687067] transition-colors hover:text-[#26382D] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-right after:scale-x-0 after:bg-[#C76D45] after:transition-transform hover:after:origin-left hover:after:scale-x-100"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <a
+          href="#join"
+          data-testid="link-nav-fund"
+          className="hidden rounded-full bg-[#C76D45] px-5 py-2.5 text-sm font-bold text-[#F7F3E9] shadow-[0_7px_18px_rgba(199,109,69,.18)] transition-transform hover:-translate-y-0.5 sm:inline-flex"
+        >
+          סיוע במימון
+        </a>
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          data-testid="button-mobile-menu"
+          onClick={() => setOpen((value) => !value)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#D8D1C1] text-[#26382D] lg:hidden"
+        >
+          {open ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}
+          <span className="sr-only">{open ? "סגירת תפריט" : "פתיחת תפריט"}</span>
+        </button>
+      </nav>
+      {open && (
+        <div id="mobile-navigation" className="border-t border-[#D8D1C1] bg-[#F7F3E9] px-4 pb-5 pt-3 lg:hidden">
+          <div className="section-wrap flex flex-col gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                data-testid={`link-mobile-nav-${item.id}`}
+                onClick={closeMenu}
+                className="border-b border-[#D8D1C1]/70 py-3 text-base font-semibold text-[#26382D]"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#join"
+              data-testid="link-mobile-nav-fund"
+              onClick={closeMenu}
+              className="mt-3 inline-flex w-fit rounded-full bg-[#C76D45] px-5 py-2.5 text-sm font-bold text-[#F7F3E9]"
+            >
+              סיוע במימון
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
-const Nav = () => (
-  <nav className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-primary/20">
-    <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        {/* Concentric rings logo glyph */}
-        <div className="relative w-8 h-8 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border border-primary/40"></div>
-          <div className="absolute inset-1 rounded-full border border-accent/40"></div>
-          <div className="absolute inset-2 rounded-full bg-primary"></div>
+const Hero = () => (
+  <section className="paper-grain relative overflow-hidden bg-[#F7F3E9]">
+    <div className="olive-branch -left-6 top-24 rotate-12 md:left-8 md:top-28" aria-hidden="true" />
+    <div className="section-wrap relative grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 md:grid-cols-[1.08fr_.92fr] md:gap-16 md:py-20 lg:py-24">
+      <div className="order-2 md:order-1">
+        <div className="editorial-rule mb-7">
+          <span className="eyebrow">מיזם חברתי לשיח מנהיגותי חדש</span>
         </div>
-        <span className="font-bold text-lg tracking-tight text-foreground">1000 מעגלים</span>
-      </div>
-      
-      <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-        {["החזון", "איך זה עובד", "מדיה", "קהילה", "אקדמיה", "הצוות"].map((item) => (
-          <a key={item} href={`#${item === 'החזון' ? 'vision' : item === 'איך זה עובד' ? 'how' : item === 'מדיה' ? 'media' : item === 'קהילה' ? 'community' : item === 'אקדמיה' ? 'academia' : 'teams'}`} 
-             className="hover:text-primary transition-colors relative group">
-            {item}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-          </a>
-        ))}
-      </div>
-
-      <button className="bg-[#81ACA5] hover:bg-[#537D80] text-[#2D2535] px-5 py-2 rounded-full font-bold text-sm transition-all shadow-[0_4px_16px_rgba(129,172,165,0.40)] hover:shadow-[0_6px_20px_rgba(83,125,128,0.50)]">
-        סיוע במימון
-      </button>
-    </div>
-  </nav>
-);
-
-const Hero = () => {
-  return (
-    <section
-      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10"
-      style={{ background: "linear-gradient(135deg, #2D2535 0%, #4A3F56 50%, #537D80 78%, #81ACA5 100%)" }}
-    >
-      {/* Background Ripples — white & sky blue on purple */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-        {[0, 1.6, 3.2, 4.8, 6.4].map((delay, i) => (
-          <div
-            key={i}
-            className={`absolute w-64 h-64 rounded-full border ${i % 2 === 0 ? 'border-white' : 'border-[#81ACA5]'} ripple-ring`}
-            style={{ animationDelay: `${delay}s` }}
-          />
-        ))}
-      </div>
-
-      <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl pt-12 pb-28">
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="w-12 h-0.5 bg-[#81ACA5]"></div>
-          <span className="text-[#81ACA5] font-bold tracking-widest text-base md:text-lg">מיזם חברתי לשיח מנהיגותי חדש</span>
-          <div className="w-12 h-0.5 bg-[#81ACA5]"></div>
-        </div>
-
-        <h1 className="font-bold text-[clamp(3.4rem,11vw,7.6rem)] leading-none tracking-tighter mb-6 bg-gradient-to-b from-white via-[#DFDDC5] to-white/80 bg-clip-text text-transparent drop-shadow-[0_2px_30px_rgba(255,255,255,0.20)]">
-          1000 מעגלים
+        <h1 className="font-display max-w-3xl text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[1.03] tracking-[-0.045em] text-[#26382D]">
+          <span className="block">להקשיב.</span>
+          <span className="block text-[#C76D45]">להסכים.</span>
+          <span className="block">לפעול יחד.</span>
         </h1>
-
-        <p className="text-xl md:text-2xl font-bold text-white mb-4 leading-snug max-w-3xl mx-auto">
-          חברה שדנה על דרכים לפתרון, ולא על מי צודק.<br className="hidden sm:block" /> שבה ההסכמה היא הישג — ולא ויתור.
+        <p className="mt-8 max-w-xl text-[1.15rem] font-medium leading-[1.75] text-[#29342E] md:text-[1.32rem]">
+          חברה שדנה על דרכים לפתרון, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור.
         </p>
-
-        <p className="text-base md:text-lg text-[#DFDDC5] mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 max-w-lg text-base leading-[1.85] text-[#687067]">
           1000 מעגלי שיח. 12 נושאים בשנה. אמנות חברתיות שנוצרות יחד — ומעצבות את השיח הציבורי בישראל.
         </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            data-testid="btn-hero-join"
-            className="bg-[#DFDDC5] hover:bg-[#CCCAB5] text-[#4A3F56] px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(223,221,197,0.40)] hover:shadow-[0_12px_34px_rgba(223,221,197,0.55)] hover:-translate-y-0.5"
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#join"
+            data-testid="link-hero-join"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#26382D] px-7 py-3.5 text-base font-bold text-[#F7F3E9] transition-transform hover:-translate-y-1"
           >
             הצטרפו למעגל
-          </button>
-          <button
-            data-testid="btn-hero-vision"
-            className="flex items-center justify-center gap-2 border border-white/40 hover:border-white text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-white/10"
+            <ArrowLeft size={18} aria-hidden="true" />
+          </a>
+          <a
+            href="#vision"
+            data-testid="link-hero-vision"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#26382D] px-7 py-3.5 text-base font-bold text-[#26382D] transition-colors hover:bg-[#EDE7D8]"
           >
-            <span>גלו את החזון</span>
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+            גלו את החזון
+            <ChevronLeft size={18} aria-hidden="true" />
+          </a>
+        </div>
+        <div className="mt-14 flex items-center gap-3 text-sm text-[#687067]">
+          <Leaf size={18} className="text-[#69735A]" aria-hidden="true" />
+          <span>שיחה טובה היא תשתית אזרחית</span>
         </div>
       </div>
-
-      {/* Stats Strip */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/15 bg-white/8 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6">
-            {[
-              { num: "1000", text: "מעגלי שיח ברחבי הארץ" },
-              { num: "12", text: "נושאים בשנה" },
-              { num: "1", text: "אמנה חברתית משותפת" },
-              { num: "∞", text: "הצבעה ישירה על הנושא הבא" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center justify-center text-center border-l last:border-0 border-white/15">
-                <span className="font-mono font-black text-3xl md:text-4xl text-[#81ACA5] drop-shadow-[0_0_12px_rgba(129,172,165,0.6)] mb-1">{stat.num}</span>
-                <span className="text-xs md:text-sm text-[#DFDDC5] font-medium">{stat.text}</span>
-              </div>
-            ))}
+      <div className="relative order-1 mx-auto w-full max-w-[520px] md:order-2">
+        <div className="absolute -inset-4 rounded-[47%_53%_45%_55%/48%_42%_58%_52%] border border-[#C8CEB9] md:-inset-7" aria-hidden="true" />
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[44%_56%_48%_52%/42%_44%_56%_58%] bg-[#C8CEB9] shadow-[0_24px_55px_rgba(38,56,45,.15)]">
+          <img
+            src="/dialogue-people.png"
+            alt="מעגל שיח — אנשים מדברים יחד בשמחה"
+            data-testid="img-hero-dialogue"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute bottom-5 right-5 left-5 flex items-end justify-between rounded-2xl border border-[#F7F3E9]/40 bg-[#26382D]/90 p-4 text-[#F7F3E9] backdrop-blur-sm">
+            <div>
+              <span className="block text-xs font-bold tracking-wide text-[#D99A70]">המעגל הראשון</span>
+              <span className="mt-1 block text-sm font-medium">מתחיל בשאלה אחת טובה</span>
+            </div>
+            <span className="font-display text-3xl font-bold text-[#C8CEB9]">01</span>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+    <div className="border-t border-[#D8D1C1] bg-[#EDE7D8]">
+      <div className="section-wrap grid grid-cols-2 divide-x divide-x-reverse divide-[#D8D1C1] md:grid-cols-4">
+        {[
+          { number: "1000", text: "מעגלי שיח ברחבי הארץ" },
+          { number: "12", text: "נושאים בשנה" },
+          { number: "1", text: "אמנה חברתית משותפת" },
+          { number: "∞", text: "הצבעה ישירה על הנושא הבא" },
+        ].map((stat, index) => (
+          <div key={stat.text} data-testid={`stat-hero-${index}`} className="px-3 py-5 text-center md:px-6 md:py-7">
+            <span className="font-display block text-3xl font-bold text-[#26382D] md:text-4xl">{stat.number}</span>
+            <span className="mt-1 block text-xs font-medium leading-snug text-[#687067] md:text-sm">{stat.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 const Vision = () => (
-  <AnimatedSection id="vision" className="container mx-auto px-4">
-    <div className="grid md:grid-cols-2 gap-16 items-center">
-      <div>
-        <span className="text-accent font-bold text-sm tracking-wider mb-2 block">החזון</span>
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">בונים חברה מבוססת הסכמות</h2>
-        
-        <div className="space-y-6 text-muted-foreground text-lg">
-          <blockquote className="border-r-4 border-primary pr-6 py-2 text-2xl text-foreground font-bold leading-snug">
-            חברה שדנה על דרכים לפתרון, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור.
-          </blockquote>
-          
-          <p>
+  <AnimatedSection id="vision" className="relative overflow-hidden bg-[#FFFFFF] py-24 md:py-32">
+    <div className="olive-branch right-[-20px] top-28 -scale-x-100 md:right-12" aria-hidden="true" />
+    <div className="section-wrap grid items-center gap-14 md:grid-cols-[.85fr_1.15fr] md:gap-24">
+      <div className="relative order-2 md:order-1">
+        <div className="absolute -inset-3 rounded-[2rem] bg-[#EDE7D8] md:-inset-6" aria-hidden="true" />
+        <img
+          src="/dialogue-circle.png"
+          alt="משתתפי מעגל שיח יושבים יחד"
+          data-testid="img-vision-circle"
+          className="relative aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-[0_18px_40px_rgba(38,56,45,.12)]"
+        />
+        <div className="absolute -bottom-7 -left-4 flex h-24 w-24 items-center justify-center rounded-full bg-[#C76D45] text-center text-xs font-bold leading-tight text-[#F7F3E9] shadow-lg md:-left-10">
+          <span>כל קול<br />נשמע</span>
+        </div>
+      </div>
+      <div className="order-1 md:order-2">
+        <span className="eyebrow">החזון</span>
+        <h2 className="font-display mt-4 max-w-2xl text-[clamp(2.3rem,5vw,4.35rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">
+          בונים חברה<br /><span className="text-[#69735A]">מבוססת הסכמות</span>
+        </h2>
+        <blockquote className="relative mt-9 border-r-2 border-[#C76D45] pr-6 text-[1.35rem] font-semibold leading-[1.55] text-[#29342E] md:text-[1.6rem]">
+          <Quote size={28} className="absolute -right-3 -top-5 bg-[#FFFFFF] text-[#C76D45]" aria-hidden="true" />
+          חברה שדנה על דרכים לפתרון, ולא על מי צודק. שבה ההסכמה היא הישג — ולא ויתור.
+        </blockquote>
+        <div className="mt-8 space-y-5 text-[1.05rem] leading-[1.9] text-[#687067]">
+          <p data-testid="text-vision-purpose">
             אנו מבקשים לעורר תרבות שיח על ידי הנחלת שיח מכבד, פתוח ומפרה. דרך הקשבה אמיתית אנחנו מעוררים שותפות ורצון טוב — ומספקים יחד מוטיבציה ויצירתיות למצוא פתרונות משותפים, ליזום מתוך אכפתיות, ולפעול בשיתוף פעולה למען מטרה משותפת.
           </p>
-          
           <p>
             המטרה שלנו היא להעמיק לכל אדם את הכלים וההשראה לדבר בגובה העיניים — ללא שמץ של ביטול או הקטנה. לטפח דיבור מכבד, להצית את המוטיבציה לתשובה משותפת, ולעודד יוזמה חיובית — ליזום למען, ליזום מתוך הקשבה, וליזום יחד.
           </p>
         </div>
-      </div>
-
-      <div className="relative aspect-square max-w-md mx-auto w-full">
-        <img
-          src="/dialogue-people.png"
-          alt="מעגל שיח — אנשים מדברים יחד בשמחה"
-          className="w-full h-full object-cover rounded-3xl shadow-2xl"
-        />
       </div>
     </div>
   </AnimatedSection>
@@ -162,28 +251,31 @@ const WhatItCreates = () => {
     { num: "01", title: "חיבור בין קצוות", desc: "מעגלים שמפגישים אנשים מקצוות מנוגדים של המפה — סביב שאלה אחת משותפת, ולא סביב קיטוב פוליטי." },
     { num: "02", title: "פוליטיקה של פתרונות", desc: "המיקוד עובר משאלת 'מי צודק' לשאלת 'מה עושים' — ומייצר הסכמות ישימות במקום מלחמות זהות." },
     { num: "03", title: "תרבות שיח חדשה", desc: "הקשבה, סקרנות, אמפטיה והכרעה משותפת הופכים מערך מופשט לפרקטיקה שכל אחד יכול לתרגל." },
-    { num: "04", title: "השפעה ציבורית", desc: "האמנה החברתית אינה נשארת בחדר — היא מתועדת, מפורסמת, ומניעה את השיח הציבורי בישראל." }
+    { num: "04", title: "השפעה ציבורית", desc: "האמנה החברתית אינה נשארת בחדר — היא מתועדת, מפורסמת, ומניעה את השיח הציבורי בישראל." },
   ];
 
   return (
-    <AnimatedSection id="creates" className="border-y border-primary/10 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #2D2535 0%, #4A3F56 55%, #81ACA5 100%)" }}>
-      {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-[#81ACA5] font-bold text-sm tracking-wider mb-2 block">מה זה מייצר</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">מפוליטיקה של זהויות — לפוליטיקה של פתרונות</h2>
-          <p className="text-[#DFDDC5] mt-4 max-w-2xl mx-auto">1000 מעגלים אינו עוד ערוץ דעות — זוהי תשתית לתרבות שיח חדשה, שבה ההסכמה היא הישג ולא ויתור.</p>
+    <AnimatedSection id="creates" className="relative overflow-hidden bg-[#26382D] py-24 text-[#F7F3E9] md:py-32">
+      <div className="olive-branch left-[-15px] top-16 opacity-40 md:left-16" aria-hidden="true" />
+      <div className="section-wrap relative">
+        <div className="grid items-end gap-8 border-b border-[#69735A]/60 pb-12 md:grid-cols-[.8fr_1.2fr] md:gap-20">
+          <p className="max-w-sm text-base leading-[1.85] text-[#C8CEB9]">
+            1000 מעגלים אינו עוד ערוץ דעות — זוהי תשתית לתרבות שיח חדשה, שבה ההסכמה היא הישג ולא ויתור.
+          </p>
+          <div>
+            <span className="eyebrow text-[#D99A70]">מה זה מייצר</span>
+            <h2 className="font-display mt-4 max-w-3xl text-[clamp(2.3rem,5vw,4.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
+              מפוליטיקה של זהויות —<br /><span className="text-[#D99A70]">לפוליטיקה של פתרונות</span>
+            </h2>
+          </div>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {principles.map((p, i) => (
-            <div key={i} className="group bg-white/8 border border-white/15 rounded-2xl p-8 backdrop-blur-sm transition-all hover:border-[#81ACA5]/50 hover:bg-white/14 hover:shadow-[0_0_30px_rgba(129,172,165,0.15)] hover:-translate-y-1">
-              <div className="font-mono text-3xl font-black text-[#81ACA5]/50 group-hover:text-[#81ACA5] transition-colors mb-4">{p.num}</div>
-              <h3 className="text-xl font-bold mb-3 text-white">{p.title}</h3>
-              <p className="text-[#DFDDC5] leading-relaxed">{p.desc}</p>
-            </div>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-[#69735A]/70 bg-[#69735A]/50 md:grid-cols-2">
+          {principles.map((principle) => (
+            <article key={principle.num} data-testid={`card-principle-${principle.num}`} className="soft-lift bg-[#26382D] p-7 md:p-10">
+              <span className="font-display text-4xl font-bold text-[#69735A]">{principle.num}</span>
+              <h3 className="font-display mt-7 text-2xl font-bold text-[#F7F3E9]">{principle.title}</h3>
+              <p className="mt-3 max-w-md text-base leading-[1.85] text-[#C8CEB9]">{principle.desc}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -202,37 +294,42 @@ const HowItWorks = () => {
   ];
 
   return (
-    <AnimatedSection id="how" className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך נראה המעגל</span>
-        <h2 className="text-3xl md:text-5xl font-bold">מהמעגל — לאמנה — להכרעה הבאה</h2>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        {steps.map((step, i) => (
-          <div key={i} className="relative flex flex-col items-center text-center group">
-            <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center font-mono text-xl font-bold text-primary mb-6 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(0,229,195,0.4)] transition-all bg-background z-10">
-              {i + 1}
-            </div>
-            <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-            <p className="text-sm text-muted-foreground">{step.desc}</p>
+    <AnimatedSection id="how" className="relative overflow-hidden bg-[#EDE7D8] py-24 md:py-32">
+      <div className="section-wrap">
+        <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <span className="eyebrow">איך נראה המעגל</span>
+            <h2 className="font-display mt-4 text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">
+              מהמעגל — לאמנה —<br /><span className="text-[#69735A]">להכרעה הבאה</span>
+            </h2>
           </div>
-        ))}
-      </div>
-
-      <div className="bg-primary/8 border border-primary/20 rounded-xl p-6 text-center max-w-2xl mx-auto">
-        <p className="text-primary font-semibold">
-          תהליך מעגלי — לא קו ישר. האיכות של השיח בכל מעגל היא מה שמניע את ההשפעה כלפי חוץ.
-        </p>
-        <p className="text-muted-foreground text-sm mt-2">
-          הקשבה, כבוד, ויצירתיות משותפת — אלו לא רק ערכים, אלא כלים שנלמדים ומתורגלים בכל מעגל.
-        </p>
+          <p className="max-w-xs text-base leading-[1.8] text-[#687067]">תהליך מעגלי — לא קו ישר. האיכות של השיח בכל מעגל היא מה שמניע את ההשפעה כלפי חוץ.</p>
+        </div>
+        <div className="relative grid gap-0 md:grid-cols-3">
+          <div className="absolute right-8 left-8 top-8 hidden h-px bg-[#C8CEB9] md:block" aria-hidden="true" />
+          {steps.map((step, index) => (
+            <article key={step.title} data-testid={`card-step-${index + 1}`} className="group relative border-b border-[#D8D1C1] py-7 last:border-b-0 md:border-b-0 md:px-6 md:py-8 md:first:pr-0 md:last:pl-0">
+              <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-[#69735A] bg-[#EDE7D8] font-display text-2xl font-bold text-[#26382D] transition-colors group-hover:border-[#C76D45] group-hover:bg-[#C76D45] group-hover:text-[#F7F3E9]">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+              <h3 className="font-display mt-6 text-xl font-bold text-[#26382D]">{step.title}</h3>
+              <p className="mt-2 max-w-xs text-[0.98rem] leading-[1.8] text-[#687067]">{step.desc}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-10 flex gap-4 rounded-2xl border border-[#C8CEB9] bg-[#F7F3E9] p-6">
+          <Leaf className="mt-1 shrink-0 text-[#69735A]" size={22} aria-hidden="true" />
+          <div>
+            <p className="font-semibold text-[#26382D]">הקשבה, כבוד, ויצירתיות משותפת — אלו לא רק ערכים, אלא כלים שנלמדים ומתורגלים בכל מעגל.</p>
+          </div>
+        </div>
       </div>
     </AnimatedSection>
   );
 };
 
 const Media = () => {
+  const [playing, setPlaying] = useState(false);
   const items = [
     { title: "פרק טלוויזיה מלא", desc: "תיעוד מעמיק של המעגל — מהמחלוקת ועד האמנה." },
     { title: "טיזרים", desc: "קטעים קצרים לרשת שמזמינים את הקהל פנימה." },
@@ -241,37 +338,40 @@ const Media = () => {
   ];
 
   return (
-    <AnimatedSection id="media" className="container mx-auto px-4">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+    <AnimatedSection id="media" className="bg-[#FFFFFF] py-24 md:py-32">
+      <div className="section-wrap grid items-center gap-14 md:grid-cols-[1.05fr_.95fr] md:gap-20">
         <div>
-          <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך זה נראה במדיה</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">מהמעגל אל המסך</h2>
-          
-          <div className="space-y-6">
-            {items.map((item, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded bg-card border border-primary/20 flex-shrink-0 flex items-center justify-center text-primary font-mono text-sm mt-1">
-                  0{i + 1}
-                </div>
+          <span className="eyebrow">איך זה נראה במדיה</span>
+          <h2 className="font-display mt-4 text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">מהמעגל<br /><span className="text-[#C76D45]">אל המסך</span></h2>
+          <div className="mt-10 divide-y divide-[#D8D1C1] border-y border-[#D8D1C1]">
+            {items.map((item, index) => (
+              <div key={item.title} data-testid={`media-item-${index}`} className="flex gap-4 py-5">
+                <span className="font-display text-xl font-bold text-[#C76D45]">0{index + 1}</span>
                 <div>
-                  <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <h3 className="font-display text-lg font-bold text-[#26382D]">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-[1.7] text-[#687067]">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="relative aspect-video rounded-2xl overflow-hidden border border-primary/20 bg-card group cursor-pointer shadow-xl">
-          {/* Faux Video Player */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#2D2535] via-[#4A3F56] to-[#537D80]/60"></div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/20 border-2 border-white flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform group-hover:bg-white/30 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-              <Play className="w-8 h-8 text-white mr-1" fill="currentColor" />
-            </div>
-            <div className="mt-6 flex flex-col items-center">
-              <span className="bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold border border-white/30 text-white mb-2">הפיילוט הקרוב</span>
-              <span className="text-sm font-medium tracking-wide text-[#DFDDC5]">פרק מלא · בקרוב</span>
+        <div className="relative">
+          <div className="absolute -inset-4 rounded-[2rem] bg-[#C8CEB9] md:-inset-6" aria-hidden="true" />
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#26382D]">
+            <img src="/dialogue-circle.png" alt="תיעוד של מעגל שיח" data-testid="img-media-circle" className="h-full w-full object-cover opacity-70" />
+            <div className="absolute inset-0 bg-[#26382D]/45" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+              <button
+                type="button"
+                data-testid="button-media-play"
+                onClick={() => setPlaying((value) => !value)}
+                aria-label={playing ? "השהיית הפרק" : "הפעלת הפרק"}
+                className="flex h-20 w-20 items-center justify-center rounded-full border border-[#F7F3E9] bg-[#F7F3E9]/15 text-[#F7F3E9] backdrop-blur-sm transition-transform hover:scale-105"
+              >
+                {playing ? <span className="font-bold text-xl" aria-hidden="true">Ⅱ</span> : <Play size={29} fill="currentColor" className="mr-[-3px]" aria-hidden="true" />}
+              </button>
+              <span className="mt-6 rounded-full border border-[#F7F3E9]/50 px-3 py-1 text-xs font-bold text-[#F7F3E9]">הפיילוט הקרוב</span>
+              <span className="mt-2 text-sm text-[#EDE7D8]">{playing ? "הפרק מתנגן · בקרוב" : "פרק מלא · בקרוב"}</span>
             </div>
           </div>
         </div>
@@ -281,39 +381,35 @@ const Media = () => {
 };
 
 const Community = () => (
-  <AnimatedSection id="community" className="bg-secondary border-y border-primary/10">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <span className="text-accent font-bold text-sm tracking-wider mb-2 block">איך זה נראה בקהילה</span>
-        <h2 className="text-3xl md:text-5xl font-bold text-white">הכוח של המעגל — איכות המנחים</h2>
+  <AnimatedSection id="community" className="bg-[#C8CEB9] py-24 md:py-32">
+    <div className="section-wrap">
+      <div className="grid items-end gap-7 border-b border-[#69735A]/45 pb-10 md:grid-cols-[1.2fr_.8fr]">
+        <div>
+          <span className="eyebrow">איך זה נראה בקהילה</span>
+          <h2 className="font-display mt-4 max-w-2xl text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">הכוח של המעגל —<br /><span className="text-[#69735A]">איכות המנחים</span></h2>
+        </div>
+        <p className="max-w-sm text-base leading-[1.85] text-[#4f5e51]">המעגל נשען על אנשים שיודעים להחזיק מורכבות, לשאול שאלה טובה, ולתת לקבוצה ליצור יחד.</p>
       </div>
-
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="mt-12 grid gap-5 md:grid-cols-3">
         {[
-          {
-            title: "מנחים ואיכות",
-            bullets: ["מנחים מיומנים שמובילים את המעגל", "סטנדרט אחיד לאיכות ההנחיה", "ליווי ומשוב לאורך התהליך"]
-          },
-          {
-            title: "הכשרה ולמידה",
-            bullets: ["מסלול הכשרה למנחים חדשים", "הכשרה מתפתחת — משתפרת מסבב לסבב", "למידת עמיתים בין מעגלים"]
-          },
-          {
-            title: "הקהל",
-            bullets: ["הכנה להנהגה מעגלית בקהילה", "הכנה לדמוקרטיה דיונית (דליברטיבית)", "הוספת מעגלים"]
-          }
-        ].map((card, i) => (
-          <div key={i} className="bg-card border border-primary/15 rounded-2xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-            <h3 className="text-xl font-bold mb-6 pb-4 border-b border-primary/15 text-primary">{card.title}</h3>
+          { title: "מנחים ואיכות", bullets: ["מנחים מיומנים שמובילים את המעגל", "סטנדרט אחיד לאיכות ההנחיה", "ליווי ומשוב לאורך התהליך"] },
+          { title: "הכשרה ולמידה", bullets: ["מסלול הכשרה למנחים חדשים", "הכשרה מתפתחת — משתפרת מסבב לסבב", "למידת עמיתים בין מעגלים"] },
+          { title: "הקהל", bullets: ["הכנה להנהגה מעגלית בקהילה", "הכנה לדמוקרטיה דיונית (דליברטיבית)", "הוספת מעגלים"] },
+        ].map((card, index) => (
+          <article key={card.title} data-testid={`card-community-${index}`} className="soft-lift rounded-[1.75rem] bg-[#F7F3E9] p-7 md:p-8">
+            <div className="mb-7 flex items-center justify-between border-b border-[#D8D1C1] pb-5">
+              <h3 className="font-display text-2xl font-bold text-[#26382D]">{card.title}</h3>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D99A70]/35 text-[#C76D45]"><Plus size={17} aria-hidden="true" /></span>
+            </div>
             <ul className="space-y-4">
-              {card.bullets.map((bullet, j) => (
-                <li key={j} className="flex gap-3 items-start">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground leading-relaxed">{bullet}</span>
+              {card.bullets.map((bullet) => (
+                <li key={bullet} className="flex gap-3 text-[0.98rem] leading-[1.7] text-[#687067]">
+                  <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C76D45]" />
+                  <span>{bullet}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </article>
         ))}
       </div>
     </div>
@@ -321,79 +417,59 @@ const Community = () => (
 );
 
 const Academia = () => (
-  <AnimatedSection id="academia" className="container mx-auto px-4">
-    <div className="text-center mb-16">
-      <span className="text-accent font-bold text-sm tracking-wider mb-2 block">אקדמיה ושיתופי פעולה</span>
-      <h2 className="text-3xl md:text-5xl font-bold">מבוסס מחקר — מחובר לשטח</h2>
-    </div>
-
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {[
-        { title: "מחקר", desc: "מחקרים לשיפור הדמוקרטיה הדיונית ומדידת ההשפעה." },
-        { title: "שיתופי פעולה", desc: "עבודה משותפת עם אקדמיה וארגוני חברה אזרחית." },
-        { title: "קצב קבוע", desc: "מפגשים קבועים ותהליכים תקופתיים — מסגרת מתמשכת של למידה והפצה." },
-        { title: "שותפים בשטח", desc: "ארגונים ורשויות כקרקע פעילה." }
-      ].map((item, i) => (
-        <div key={i} className="bg-card border border-primary/10 rounded-xl p-6 hover:-translate-y-1 transition-transform">
-          <h3 className="font-bold text-lg mb-3 text-primary">{item.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+  <AnimatedSection id="academia" className="bg-[#F7F3E9] py-24 md:py-32">
+    <div className="section-wrap">
+      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <span className="eyebrow">אקדמיה ושיתופי פעולה</span>
+          <h2 className="font-display mt-4 max-w-3xl text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">מבוסס מחקר —<br /><span className="text-[#69735A]">מחובר לשטח</span></h2>
         </div>
-      ))}
+        <p className="max-w-xs text-base leading-[1.8] text-[#687067]">המעגלים הם מרחב חי לניסוי, למידה, מדידה ושיפור.</p>
+      </div>
+      <div className="mt-14 grid gap-4 md:grid-cols-12">
+        {[
+          { title: "מחקר", desc: "מחקרים לשיפור הדמוקרטיה הדיונית ומדידת ההשפעה.", span: "md:col-span-5" },
+          { title: "שיתופי פעולה", desc: "עבודה משותפת עם אקדמיה וארגוני חברה אזרחית.", span: "md:col-span-7" },
+          { title: "קצב קבוע", desc: "מפגשים קבועים ותהליכים תקופתיים — מסגרת מתמשכת של למידה והפצה.", span: "md:col-span-7" },
+          { title: "שותפים בשטח", desc: "ארגונים ורשויות כקרקע פעילה.", span: "md:col-span-5" },
+        ].map((item, index) => (
+          <article key={item.title} data-testid={`card-academia-${index}`} className={`soft-lift ${item.span} rounded-[1.5rem] border border-[#D8D1C1] bg-[#FFFFFF] p-7 md:p-9`}>
+            <span className="font-display text-5xl font-semibold text-[#D99A70]/70">0{index + 1}</span>
+            <h3 className="font-display mt-7 text-2xl font-bold text-[#26382D]">{item.title}</h3>
+            <p className="mt-2 max-w-lg text-base leading-[1.8] text-[#687067]">{item.desc}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </AnimatedSection>
 );
 
 const Team = () => {
   const teams = [
-    {
-      name: "צוות ההקמה",
-      members: [
-        { name: "לירז סיאני לופז", role: "הקמה" },
-        { name: "עירן הלוי", role: "הקמה · הכשרת מנחים" },
-        { name: "טל ירון", role: "הקמה · מתודולוגיה" },
-        { name: "איילת יונס", role: "הקמה" },
-      ]
-    },
-    {
-      name: "צוות הפיילוט",
-      members: [
-        { name: "רחל עזריה", role: "" },
-        { name: "מיכאל מירו", role: "" },
-        { name: "קרן אשכנזי", role: "" },
-        { name: "נגה ארבל", role: "" },
-        { name: "יאיר אנסבכר", role: "" },
-      ]
-    },
-    {
-      name: "צוות הצילום",
-      members: [
-        { name: "לירז סיאני לופז", role: "צילום" },
-        { name: "ליאור פז", role: "צילום · כאן 11" },
-      ]
-    }
+    { name: "צוות ההקמה", members: [{ name: "לירז סיאני לופז", role: "הקמה" }, { name: "עירן הלוי", role: "הקמה · הכשרת מנחים" }, { name: "טל ירון", role: "הקמה · מתודולוגיה" }, { name: "איילת יונס", role: "הקמה" }] },
+    { name: "צוות הפיילוט", members: [{ name: "רחל עזריה", role: "" }, { name: "מיכאל מירו", role: "" }, { name: "קרן אשכנזי", role: "" }, { name: "נגה ארבל", role: "" }, { name: "יאיר אנסבכר", role: "" }] },
+    { name: "צוות הצילום", members: [{ name: "לירז סיאני לופז", role: "צילום" }, { name: "ליאור פז", role: "צילום · כאן 11" }] },
   ];
 
   return (
-    <AnimatedSection id="teams" className="bg-secondary border-t border-primary/10 pb-32">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-accent font-bold text-sm tracking-wider mb-2 block">הצוות</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">מי מאחורי המעגלים</h2>
+    <AnimatedSection id="teams" className="relative overflow-hidden bg-[#26382D] py-24 text-[#F7F3E9] md:py-32">
+      <div className="olive-branch right-[-20px] top-20 -scale-x-100 opacity-35 md:right-16" aria-hidden="true" />
+      <div className="section-wrap">
+        <div className="mb-14">
+          <span className="eyebrow text-[#D99A70]">הצוות</span>
+          <h2 className="font-display mt-4 text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em]">מי מאחורי<br /><span className="text-[#C8CEB9]">המעגלים</span></h2>
         </div>
-
-        <div className="max-w-4xl mx-auto space-y-12">
-          {teams.map((team, i) => (
-            <div key={i}>
-              <h3 className="text-xl font-bold mb-6 border-b border-white/30 pb-2 inline-block pr-4 pl-12 text-white/90">{team.name}</h3>
-              <div className="flex flex-wrap gap-4">
-                {team.members.map((member, j) => (
-                  <div key={j} className="flex items-center gap-3 bg-card border border-primary/10 rounded-full pr-1.5 pl-5 py-1.5">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-background text-sm">
-                      {member.name.charAt(0)}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold leading-none">{member.name}</span>
-                      {member.role && <span className="text-xs text-muted-foreground mt-1 leading-none">{member.role}</span>}
+        <div className="grid gap-12 md:grid-cols-3">
+          {teams.map((team, index) => (
+            <div key={team.name} data-testid={`team-group-${index}`}>
+              <h3 className="mb-5 border-b border-[#69735A] pb-4 font-display text-xl font-bold text-[#D99A70]">{team.name}</h3>
+              <div className="space-y-3">
+                {team.members.map((member, memberIndex) => (
+                  <div key={`${team.name}-${member.name}`} data-testid={`team-member-${index}-${memberIndex}`} className="flex items-center gap-3 rounded-xl border border-[#69735A]/65 bg-[#314638] px-3 py-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#D99A70] font-display font-bold text-[#26382D]">{member.name.charAt(0)}</div>
+                    <div>
+                      <span className="block text-sm font-bold">{member.name}</span>
+                      {member.role && <span className="mt-0.5 block text-xs text-[#C8CEB9]">{member.role}</span>}
                     </div>
                   </div>
                 ))}
@@ -407,87 +483,52 @@ const Team = () => {
 };
 
 const CTA = () => (
-  <section
-    id="join"
-    className="py-32 relative overflow-hidden"
-    style={{ background: "linear-gradient(160deg, #2D2535 0%, #4A3F56 50%, #81ACA5 100%)" }}
-  >
-    {/* radial glow behind text */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/8 rounded-full blur-[100px] pointer-events-none"></div>
-
-    {/* ripple rings */}
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-      {[0, 1.8, 3.6].map((delay, i) => (
-        <div
-          key={i}
-          className="absolute w-48 h-48 rounded-full border border-white ripple-ring"
-          style={{ animationDelay: `${delay}s` }}
-        />
-      ))}
-    </div>
-
-    <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
-      <span className="text-[#81ACA5] font-bold text-sm tracking-wider mb-4 block">הצטרפו אלינו</span>
-      <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">כל שינוי גדול מתחיל במעגל אחד</h2>
-      <p className="text-xl text-[#DFDDC5] mb-12 leading-relaxed max-w-2xl mx-auto">
-        אנחנו יחד בונים תרבות שיח שמאפשרת לכולנו להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. הצעד הראשון — מעגל אחד.
-      </p>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 max-w-3xl mx-auto">
+  <section id="join" className="relative overflow-hidden bg-[#C76D45] py-24 text-[#F7F3E9] md:py-32">
+    <div className="absolute -left-28 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-[#F7F3E9]/20 md:h-[520px] md:w-[520px]" aria-hidden="true" />
+    <div className="absolute -left-16 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full border border-[#F7F3E9]/25 md:left-16 md:h-80 md:w-80" aria-hidden="true" />
+    <div className="section-wrap relative">
+      <div className="max-w-3xl">
+        <span className="eyebrow text-[#F7F3E9]">הצטרפו אלינו</span>
+        <h2 className="font-display mt-5 text-[clamp(2.5rem,6vw,5.2rem)] font-semibold leading-[1.05] tracking-[-0.04em]">כל שינוי גדול<br /><span className="text-[#26382D]">מתחיל במעגל אחד</span></h2>
+        <p className="mt-7 max-w-2xl text-lg leading-[1.85] text-[#F7F3E9]/90">
+          אנחנו יחד בונים תרבות שיח שמאפשרת לכולנו להקשיב, להתווכח על פתרונות, ולכתוב יחד את הכללים שלפיהם נבחר לחיות. הצעד הראשון — מעגל אחד.
+        </p>
+      </div>
+      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { label: "הצטרפו למעגל", sub: "השתתפות בדיון קהילתי" },
-          { label: "היו מנחה", sub: "הכשרה והובלת מעגלים" },
-          { label: "הציעו נושא", sub: "עצבו את סדר היום" },
-          { label: "שיתוף פעולה", sub: "ארגונים ושותפים" },
-        ].map((action, i) => (
-          <button
-            key={i}
-            className="group flex flex-col items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/25 hover:border-white/50 rounded-2xl px-4 py-5 transition-all hover:-translate-y-1"
-          >
-            <span className="font-bold text-white text-sm">{action.label}</span>
-            <span className="text-[#DFDDC5]/80 text-xs">{action.sub}</span>
-          </button>
+          { label: "הצטרפו למעגל", sub: "השתתפות בדיון קהילתי", href: "#community" },
+          { label: "היו מנחה", sub: "הכשרה והובלת מעגלים", href: "#community" },
+          { label: "הציעו נושא", sub: "עצבו את סדר היום", href: "mailto:hello@1000maagalim.org" },
+          { label: "שיתוף פעולה", sub: "ארגונים ושותפים", href: "#academia" },
+        ].map((action, index) => (
+          <a key={action.label} href={action.href} data-testid={`link-join-action-${index}`} className="group rounded-2xl border border-[#F7F3E9]/45 bg-[#F7F3E9]/10 p-5 transition-colors hover:bg-[#F7F3E9]/20">
+            <span className="block font-bold">{action.label}</span>
+            <span className="mt-1 block text-sm text-[#F7F3E9]/75">{action.sub}</span>
+            <ArrowLeft size={18} className="mt-5 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
+          </a>
         ))}
       </div>
-
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button
-          data-testid="btn-cta-fund"
-          className="bg-[#DFDDC5] hover:bg-[#CCCAB5] text-[#4A3F56] px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto shadow-[0_8px_28px_rgba(223,221,197,0.35)] hover:shadow-[0_12px_36px_rgba(223,221,197,0.50)] hover:-translate-y-0.5"
-        >
-          סיוע במימון
-        </button>
-        <button
-          data-testid="btn-cta-contact"
-          className="flex items-center justify-center gap-2 border-2 border-white/50 hover:border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto hover:bg-white/10"
-        >
-          <span>דברו איתנו</span>
-          <ChevronLeft className="w-5 h-5" />
-        </button>
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href="mailto:hello@1000maagalim.org?subject=סיוע במימון" data-testid="link-cta-fund" className="inline-flex items-center justify-center rounded-full bg-[#26382D] px-8 py-3.5 font-bold text-[#F7F3E9] transition-transform hover:-translate-y-1">סיוע במימון</a>
+        <a href="mailto:hello@1000maagalim.org" data-testid="link-cta-contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F7F3E9] px-8 py-3.5 font-bold text-[#F7F3E9] transition-colors hover:bg-[#F7F3E9]/10">דברו איתנו <ChevronLeft size={18} aria-hidden="true" /></a>
       </div>
     </div>
   </section>
 );
 
 const Footer = () => (
-  <footer className="py-12 border-t border-white/10" style={{ background: "#537D80" }}>
-    <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-2">
-        <div className="relative w-7 h-7 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border border-white/40"></div>
-          <div className="absolute inset-1.5 rounded-full border border-[#81ACA5]/60"></div>
-          <div className="absolute inset-3 rounded-full bg-[#81ACA5]"></div>
-        </div>
-        <span className="font-bold text-lg text-white">1000 מעגלים</span>
-      </div>
-      <p className="text-sm text-[#DFDDC5]">מיזם חברתי לשיח מנהיגותי חדש</p>
+  <footer className="bg-[#26382D] py-10 text-[#C8CEB9]">
+    <div className="section-wrap flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+      <Logo light />
+      <p data-testid="text-footer-tagline" className="text-sm">מיזם חברתי לשיח מנהיגותי חדש</p>
+      <a href="#top" data-testid="link-footer-top" className="text-sm font-semibold text-[#D99A70] transition-colors hover:text-[#F7F3E9]">חזרה למעלה ↑</a>
     </div>
   </footer>
 );
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans">
+    <div dir="rtl" className="min-h-[100dvh] bg-[#F7F3E9] font-body text-[#29342E]">
       <Nav />
       <main>
         <Hero />
