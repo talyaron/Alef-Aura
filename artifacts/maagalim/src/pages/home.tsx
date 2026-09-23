@@ -179,7 +179,7 @@ const Hero = () => (
         className="absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-center"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#F7F3E9] via-[#F7F3E9]/92 to-transparent md:bg-gradient-to-l md:from-[#F7F3E9] md:via-[#F7F3E9]/94 md:to-transparent"
+        className="absolute inset-0 bg-[linear-gradient(to_top,#F7F3E9_0%,rgba(247,243,233,0.9)_48%,rgba(247,243,233,0.3)_76%,transparent_100%)] md:bg-[linear-gradient(to_left,#F7F3E9_0%,rgba(247,243,233,0.96)_30%,rgba(247,243,233,0.72)_50%,rgba(247,243,233,0.18)_68%,transparent_82%)]"
         aria-hidden="true"
       />
       <OliveBranchArt className="pointer-events-none absolute -left-14 -top-8 w-[300px] -rotate-12 opacity-55 md:w-[420px]" />
