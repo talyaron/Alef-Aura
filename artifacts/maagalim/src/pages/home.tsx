@@ -60,6 +60,46 @@ const Logo = ({ light = false }: { light?: boolean }) => (
   </a>
 );
 
+const OliveBranchArt = ({ className = "" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 420 190"
+    className={className}
+    role="img"
+    aria-label="ענף עץ זית"
+  >
+    <path
+      d="M28 158C116 142 170 104 214 70C263 33 319 21 390 29"
+      fill="none"
+      stroke="#69735A"
+      strokeWidth="6"
+      strokeLinecap="round"
+    />
+    {[
+      { x: 83, y: 139, r: -31 },
+      { x: 116, y: 122, r: 26 },
+      { x: 151, y: 101, r: -34 },
+      { x: 185, y: 78, r: 28 },
+      { x: 224, y: 58, r: -31 },
+      { x: 262, y: 43, r: 30 },
+      { x: 304, y: 32, r: -25 },
+      { x: 345, y: 28, r: 25 },
+    ].map((leaf, index) => (
+      <g key={index} transform={`translate(${leaf.x} ${leaf.y}) rotate(${leaf.r})`}>
+        <path
+          d="M0 0C12-25 40-31 57-16C45 10 20 15 0 0Z"
+          fill={index % 2 === 0 ? "#69735A" : "#8E987D"}
+        />
+        <path d="M5-2C21-9 35-13 50-15" fill="none" stroke="#F7F3E9" strokeWidth="1.6" opacity=".55" />
+      </g>
+    ))}
+    <g fill="#26382D">
+      <ellipse cx="197" cy="92" rx="8" ry="12" transform="rotate(25 197 92)" />
+      <ellipse cx="249" cy="58" rx="8" ry="12" transform="rotate(-18 249 58)" />
+      <ellipse cx="326" cy="35" rx="8" ry="12" transform="rotate(19 326 35)" />
+    </g>
+  </svg>
+);
+
 const Nav = () => {
   const [open, setOpen] = useState(false);
 
@@ -131,7 +171,7 @@ const Nav = () => {
 
 const Hero = () => (
   <section className="paper-grain relative overflow-hidden bg-[#F7F3E9]">
-    <div className="olive-branch -left-6 top-24 rotate-12 md:left-8 md:top-28" aria-hidden="true" />
+    <OliveBranchArt className="pointer-events-none absolute -left-20 top-24 w-[300px] -rotate-12 opacity-20 md:-left-8 md:top-28 md:w-[430px] md:opacity-30" />
     <div className="section-wrap relative grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 md:grid-cols-[1.08fr_.92fr] md:gap-16 md:py-20 lg:py-24">
       <div className="order-2 md:order-1">
         <div className="editorial-rule mb-7">
@@ -180,13 +220,6 @@ const Hero = () => (
             data-testid="img-hero-dialogue"
             className="h-full w-full object-cover"
           />
-          <div className="absolute bottom-5 right-5 left-5 flex items-end justify-between rounded-2xl border border-[#F7F3E9]/40 bg-[#26382D]/90 p-4 text-[#F7F3E9] backdrop-blur-sm">
-            <div>
-              <span className="block text-xs font-bold tracking-wide text-[#D99A70]">המעגל הראשון</span>
-              <span className="mt-1 block text-sm font-medium">מתחיל בשאלה אחת טובה</span>
-            </div>
-            <span className="font-display text-3xl font-bold text-[#C8CEB9]">01</span>
-          </div>
         </div>
       </div>
     </div>
@@ -210,18 +243,16 @@ const Hero = () => (
 
 const Vision = () => (
   <AnimatedSection id="vision" className="relative overflow-hidden bg-[#FFFFFF] py-24 md:py-32">
-    <div className="olive-branch right-[-20px] top-28 -scale-x-100 md:right-12" aria-hidden="true" />
     <div className="section-wrap grid items-center gap-14 md:grid-cols-[.85fr_1.15fr] md:gap-24">
       <div className="relative order-2 md:order-1">
-        <div className="absolute -inset-3 rounded-[2rem] bg-[#EDE7D8] md:-inset-6" aria-hidden="true" />
-        <img
-          src="/dialogue-circle.png"
-          alt="משתתפי מעגל שיח יושבים יחד"
-          data-testid="img-vision-circle"
-          className="relative aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-[0_18px_40px_rgba(38,56,45,.12)]"
-        />
-        <div className="absolute -bottom-7 -left-4 flex h-24 w-24 items-center justify-center rounded-full bg-[#C76D45] text-center text-xs font-bold leading-tight text-[#F7F3E9] shadow-lg md:-left-10">
-          <span>כל קול<br />נשמע</span>
+        <div className="relative overflow-hidden rounded-[2.25rem] bg-[#EDE7D8] px-7 py-10 shadow-[0_18px_40px_rgba(38,56,45,.10)] md:px-10 md:py-14">
+          <OliveBranchArt className="mx-auto w-full max-w-[430px]" />
+          <div className="mt-4 border-t border-[#C8CEB9] pt-6">
+            <p className="font-display text-2xl font-semibold leading-[1.45] text-[#26382D]">
+              מקשיבים לקולות השונים.<br />
+              מוצאים את הקרקע המשותפת.
+            </p>
+          </div>
         </div>
       </div>
       <div className="order-1 md:order-2">
@@ -358,7 +389,7 @@ const Media = () => {
         <div className="relative">
           <div className="absolute -inset-4 rounded-[2rem] bg-[#C8CEB9] md:-inset-6" aria-hidden="true" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#26382D]">
-            <img src="/dialogue-circle.png" alt="תיעוד של מעגל שיח" data-testid="img-media-circle" className="h-full w-full object-cover opacity-70" />
+            <img src="/dialogue-people.png" alt="אנשים משתתפים במעגל שיח" data-testid="img-media-circle" className="h-full w-full object-cover object-center opacity-75" />
             <div className="absolute inset-0 bg-[#26382D]/45" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
               <button
