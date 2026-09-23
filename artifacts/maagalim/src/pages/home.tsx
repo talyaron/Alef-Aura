@@ -267,7 +267,7 @@ const Vision = () => (
       <div className="order-1 md:order-2">
         <span className="eyebrow">החזון</span>
         <h2 className="font-display mt-4 max-w-2xl text-[clamp(2.3rem,5vw,4.35rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">
-          בונים חברה<br /><span className="text-[#69735A]">מבוססת הסכמות</span>
+          בונים חברה<br /><span className="text-[#69735A]">מטפחת הסכמות</span>
         </h2>
         <blockquote className="relative mt-9 border-r-2 border-[#C76D45] pr-6 text-[1.35rem] font-semibold leading-[1.55] text-[#29342E] md:text-[1.6rem]">
           <Quote size={28} className="absolute -right-3 -top-5 bg-[#FFFFFF] text-[#C76D45]" aria-hidden="true" />
@@ -277,10 +277,16 @@ const Vision = () => (
           <p data-testid="text-vision-purpose">
             אנו מבקשים לעורר תרבות שיח על ידי הנחלת שיח מכבד, פתוח ומפרה. דרך הקשבה אמיתית אנחנו מעוררים שותפות ורצון טוב — ומספקים יחד מוטיבציה ויצירתיות למצוא פתרונות משותפים, ליזום מתוך אכפתיות, ולפעול בשיתוף פעולה למען מטרה משותפת.
           </p>
-          <p>
-            המטרה שלנו היא להעמיק לכל אדם את הכלים וההשראה לדבר בגובה העיניים — ללא שמץ של ביטול או הקטנה. לטפח דיבור מכבד, להצית את המוטיבציה לתשובה משותפת, ולעודד יוזמה חיובית — ליזום למען, ליזום מתוך הקשבה, וליזום יחד.
-          </p>
         </div>
+      </div>
+    </div>
+    <div className="section-wrap mt-16 md:mt-24">
+      <div className="relative overflow-hidden rounded-[2rem] border border-[#C8CEB9] bg-[#F7F3E9] px-7 py-11 text-center shadow-[0_18px_45px_rgba(38,56,45,.08)] md:px-16 md:py-14">
+        <OliveBranchArt className="pointer-events-none absolute -left-12 -top-10 w-56 -rotate-12 opacity-25 md:w-72" />
+        <span className="eyebrow relative">המטרה שלנו</span>
+        <p className="font-display relative mx-auto mt-5 max-w-5xl text-[clamp(1.45rem,2.6vw,2.25rem)] font-semibold leading-[1.65] text-[#26382D]">
+          להעמיק לכל אדם את הכלים וההשראה לדבר בגובה העיניים — ללא שמץ של ביטול או הקטנה. לטפח דיבור מכבד, להצית את המוטיבציה לתשובה משותפת, ולעודד יוזמה חיובית — ליזום למען, ליזום מתוך הקשבה, וליזום יחד.
+        </p>
       </div>
     </div>
   </AnimatedSection>
@@ -326,37 +332,66 @@ const WhatItCreates = () => {
 const HowItWorks = () => {
   const steps = [
     { title: "מעגל פתיחה מצולם", desc: "מעגל מצולם עם אנשי ציבור ומובילי דעה פותח את הנושא ומעלה אותו לסדר היום." },
-    { title: "מעגלים ברחבי הארץ", desc: "עשרות מעגלים נפתחים בקהילות בכל הארץ, בליווי מנחים מיומנים." },
+    { title: "מעגלים ברחבי הארץ", desc: "1,000 מעגלים נפתחים בקהילות בכל הארץ, בליווי מנחים מיומנים." },
     { title: "פתרונות הופכים לאמנות", desc: "מתוך המעגלים עולים פתרונות שמתגבשים לכדי אמנות חברתיות." },
     { title: "דיון ציבורי ואמנה אחת", desc: "מתנהל דיון ציבורי על האמנות, ומתוכן מתגבשת אמנה חברתית אחת." },
     { title: "מנהיגי ציבור מגיבים", desc: "מנהיגי ציבור מוזמנים להתייחס לאמנה שנוצרה — במעמד מצולם המשודר לציבור." },
     { title: "בוחרים את הנושא הבא", desc: "הקהל והמשתתפים בוחרים את הנושא הבא שייכנס למעגלים, והמחזור מתחדש." },
   ];
+  const desktopPositions = [
+    "left-1/2 top-0 -translate-x-1/2",
+    "right-0 top-[18%]",
+    "right-[6%] bottom-[8%]",
+    "left-1/2 bottom-0 -translate-x-1/2",
+    "left-[6%] bottom-[8%]",
+    "left-0 top-[18%]",
+  ];
 
   return (
     <AnimatedSection id="how" className="relative overflow-hidden bg-[#EDE7D8] py-24 md:py-32">
       <div className="section-wrap">
-        <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-          <div>
-            <span className="eyebrow">איך נראה המעגל</span>
-            <h2 className="font-display mt-4 text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">
-              מהמעגל — לאמנה —<br /><span className="text-[#69735A]">להכרעה הבאה</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-base leading-[1.8] text-[#687067]">תהליך מעגלי — לא קו ישר. האיכות של השיח בכל מעגל היא מה שמניע את ההשפעה כלפי חוץ.</p>
+        <div className="mx-auto mb-14 max-w-4xl text-center">
+          <span className="eyebrow">המתודולוגיה · איך נראה פורמט המעגל</span>
+          <h2 className="font-display mt-4 text-[clamp(2.3rem,5vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-[#26382D]">
+            בכל חודש נושא חדש —<br /><span className="text-[#69735A]">וכל הארץ מדברת עליו</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-[1.08rem] leading-[1.85] text-[#586259]">
+            בכל חודש נבחר נושא משותף חדש. באותו זמן מתקיימים ברחבי הארץ 1,000 מעגלי שיח באותו פורמט — מקשיבים, מנסחים פתרונות ומחברים את הקולות המקומיים להשפעה ארצית.
+          </p>
         </div>
-        <div className="relative grid gap-0 md:grid-cols-3">
-          <div className="absolute right-8 left-8 top-8 hidden h-px bg-[#C8CEB9] md:block" aria-hidden="true" />
+
+        <div className="grid gap-4 md:hidden">
           {steps.map((step, index) => (
-            <article key={step.title} data-testid={`card-step-${index + 1}`} className="group relative border-b border-[#D8D1C1] py-7 last:border-b-0 md:border-b-0 md:px-6 md:py-8 md:first:pr-0 md:last:pl-0">
-              <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-[#69735A] bg-[#EDE7D8] font-display text-2xl font-bold text-[#26382D] transition-colors group-hover:border-[#C76D45] group-hover:bg-[#C76D45] group-hover:text-[#F7F3E9]">
+            <article key={step.title} data-testid={`card-step-${index + 1}`} className="flex gap-5 rounded-2xl border border-[#D8D1C1] bg-[#F7F3E9] p-5">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#26382D] font-display text-lg font-bold text-[#F7F3E9]">
                 {String(index + 1).padStart(2, "0")}
               </div>
-              <h3 className="font-display mt-6 text-xl font-bold text-[#26382D]">{step.title}</h3>
-              <p className="mt-2 max-w-xs text-[0.98rem] leading-[1.8] text-[#687067]">{step.desc}</p>
+              <div>
+                <h3 className="font-display text-xl font-bold text-[#26382D]">{step.title}</h3>
+                <p className="mt-1 text-[0.95rem] leading-[1.75] text-[#687067]">{step.desc}</p>
+              </div>
             </article>
           ))}
         </div>
+
+        <div className="relative mx-auto hidden h-[760px] max-w-[1120px] md:block">
+          <div className="absolute left-1/2 top-1/2 h-[570px] w-[570px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#69735A]/55" aria-hidden="true" />
+          <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-[#26382D] px-7 text-center text-[#F7F3E9] shadow-[0_22px_50px_rgba(38,56,45,.2)]">
+            <span className="font-display text-5xl font-bold">1,000</span>
+            <span className="mt-2 text-lg font-bold">מעגלים</span>
+            <span className="mt-3 border-t border-[#C8CEB9]/45 pt-3 text-sm leading-relaxed text-[#C8CEB9]">נושא חודשי אחד<br />שיח ארצי משותף</span>
+          </div>
+          {steps.map((step, index) => (
+            <article key={step.title} data-testid={`card-step-desktop-${index + 1}`} className={`absolute w-[270px] rounded-[1.5rem] border border-[#D8D1C1] bg-[#F7F3E9] p-5 shadow-[0_12px_30px_rgba(38,56,45,.08)] ${desktopPositions[index]}`}>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#C76D45] font-display text-base font-bold text-white">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="font-display text-lg font-bold leading-tight text-[#26382D]">{step.title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-[1.65] text-[#687067]">{step.desc}</p>
+            </article>
+          ))}
+        </div>
+
         <div className="mt-10 flex gap-4 rounded-2xl border border-[#C8CEB9] bg-[#F7F3E9] p-6">
           <Leaf className="mt-1 shrink-0 text-[#69735A]" size={22} aria-hidden="true" />
           <div>
@@ -374,7 +409,7 @@ const Media = () => {
     { title: "פרק טלוויזיה מלא", desc: "תיעוד מעמיק של המעגל — מהמחלוקת ועד האמנה." },
     { title: "טיזרים", desc: "קטעים קצרים לרשת שמזמינים את הקהל פנימה." },
     { title: "תקציר הפרק", desc: "סיכום נגיש של הנושא, התהליך וההסכמות." },
-    { title: "נוכחות במדיה", desc: "הד ציבורי שמחבר בין המעגל לשיח הלאומי." },
+    { title: "הד ציבורי", desc: "מחבר בין המעגל לשיח הלאומי ומציג את השפעתו על מקבלי ההחלטות." },
   ];
 
   return (
@@ -470,8 +505,7 @@ const Academia = () => (
         {[
           { title: "מחקר", desc: "מחקרים לשיפור הדמוקרטיה הדיונית ומדידת ההשפעה.", span: "md:col-span-5" },
           { title: "שיתופי פעולה", desc: "עבודה משותפת עם אקדמיה וארגוני חברה אזרחית.", span: "md:col-span-7" },
-          { title: "קצב קבוע", desc: "מפגשים קבועים ותהליכים תקופתיים — מסגרת מתמשכת של למידה והפצה.", span: "md:col-span-7" },
-          { title: "שותפים בשטח", desc: "ארגונים ורשויות כקרקע פעילה.", span: "md:col-span-5" },
+          { title: "שותפים בשטח", desc: "ארגונים ורשויות כקרקע פעילה.", span: "md:col-span-12" },
         ].map((item, index) => (
           <article key={item.title} data-testid={`card-academia-${index}`} className={`soft-lift ${item.span} rounded-[1.5rem] border border-[#D8D1C1] bg-[#FFFFFF] p-7 md:p-9`}>
             <span className="font-display text-5xl font-semibold text-[#D99A70]/70">0{index + 1}</span>
