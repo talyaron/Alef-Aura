@@ -171,10 +171,21 @@ const Nav = () => {
 
 const Hero = () => (
   <section className="paper-grain relative overflow-hidden bg-[#F7F3E9]">
-    <div className="relative mx-auto grid max-w-[1440px] md:min-h-[690px] md:grid-cols-[1fr_1.18fr]">
-      <div className="relative order-2 flex items-center px-6 py-14 sm:px-10 md:order-1 md:px-12 md:py-16 lg:px-20">
-        <OliveBranchArt className="pointer-events-none absolute -bottom-12 -right-16 w-[260px] -scale-x-100 opacity-25 md:-bottom-8 md:-right-10 md:w-[360px]" />
-        <div className="relative z-10 max-w-[560px]">
+    <div className="relative mx-auto min-h-[760px] max-w-[1440px] overflow-hidden md:min-h-[690px]">
+      <img
+        src="/maagalim-circle-reference.jpeg"
+        alt="מעגל שיח — אנשים מדברים יחד בשמחה"
+        data-testid="img-hero-dialogue"
+        className="absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-center"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-[#F7F3E9] via-[#F7F3E9]/92 to-transparent md:bg-gradient-to-l md:from-[#F7F3E9] md:via-[#F7F3E9]/94 md:to-transparent"
+        aria-hidden="true"
+      />
+      <OliveBranchArt className="pointer-events-none absolute -left-14 -top-8 w-[300px] -rotate-12 opacity-55 md:w-[420px]" />
+      <OliveBranchArt className="pointer-events-none absolute -bottom-12 -right-16 w-[260px] -scale-x-100 opacity-25 md:-bottom-8 md:-right-10 md:w-[360px]" />
+      <div className="relative z-10 flex min-h-[760px] items-end px-6 py-12 sm:px-10 md:min-h-[690px] md:items-center md:px-12 md:py-16 lg:px-20">
+        <div className="w-full max-w-[560px] md:mr-0 md:ml-auto">
           <p className="font-display text-[clamp(1.45rem,2.5vw,2.2rem)] font-semibold leading-[1.25] text-[#29342E]">
             מיזם חברתי לשיח
           </p>
@@ -214,16 +225,6 @@ const Hero = () => (
             <span>שיחה טובה היא תשתית אזרחית</span>
           </div>
         </div>
-      </div>
-      <div className="relative order-1 min-h-[390px] overflow-hidden md:order-2 md:min-h-[690px]">
-        <img
-          src="/maagalim-circle-reference.jpeg"
-          alt="מעגל שיח — אנשים מדברים יחד בשמחה"
-          data-testid="img-hero-dialogue"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#26382D]/20 via-transparent to-transparent md:bg-gradient-to-l md:from-[#F7F3E9]/12 md:to-transparent" aria-hidden="true" />
-        <OliveBranchArt className="pointer-events-none absolute -left-16 -top-8 w-[330px] -rotate-12 opacity-65 md:w-[420px]" />
       </div>
     </div>
     <div className="border-t border-[#D8D1C1] bg-[#EDE7D8]">
